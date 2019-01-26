@@ -1,6 +1,13 @@
 #include "main.h"
 
-
+/*
+函数名：PWM_Init_TIM1
+传	参：u16 arr,u16 psc 频率
+返回值：无
+作	用：初始化定时器1的四路PWM输出
+日	期：2019年1月26日
+作	者：meetwit
+*/
 void PWM_Init_TIM1(u16 arr,u16 psc)
 {		 					 
 	RCC->APB2ENR|=1<<11;       //使能TIM1时钟    
@@ -30,6 +37,14 @@ void PWM_Init_TIM1(u16 arr,u16 psc)
 	TIM1->CR1|=0x01;          //使能定时器1 											  
 } 
 
+/*
+函数名：motor_run
+传	参：u8 left_right_direct 方向, u8 Percentage 电机转动功率
+返回值：无
+作	用：方向等1和2是电机1的正反方向，方向等于3和4是电机2的正反方向，等于0停止
+日	期：2019年1月26日
+作	者：meetwit
+*/
 void motor_run(u8 left_right_direct, u8 Percentage){
 	u16 temp,temp_N;
 	
@@ -45,13 +60,7 @@ void motor_run(u8 left_right_direct, u8 Percentage){
 	
 	temp=Percentage*PWMMAX/100;
 	temp_N=PWMMAX-temp;
-	//printf("PWMMAX=%d,temp=%d\r\n",PWMMAX,temp);
-	/**
-#define left_Clockwise 1
-#define left_Anti_clockwise 2
-#define right_Clockwise 3
-#define right_Anti_clockwise 4
-	**/
+	
 	if(left_right_direct==1){
 		PWMA1=temp_N;
 		PWMA2=PWMMAX;
@@ -74,6 +83,16 @@ void motor_run(u8 left_right_direct, u8 Percentage){
 	
 }
 
+/*
+函数名：selfCorrecting
+传	参：u8 switchOne 选择一个电机,u8 type 控制方式,s32 target 目标值
+返回值：无
+作	用：switchOne等于‘l’左边电机，等于‘r’右边电机，
+				type等于1，位置控制；
+				target是目标值，位置控制时是编码器的脉冲数，6万个数是一圈
+日	期：2019年1月26日
+作	者：meetwit
+*/
 void selfCorrecting(u8 switchOne,u8 type,s32 target){
 	u8 temp=1;
 	if(type==1){		//位置

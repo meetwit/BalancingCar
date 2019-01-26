@@ -4,6 +4,13 @@ u16 imuCorrectCount=0,imuErrorCount=0,readEncodeCount=0,sendDataCount=0,controlM
 
 s32 leftEncoder=0,rightEncoder=0;
 
+/*
+线	程：readEncode
+作	用：读取左右电机编码器脉冲数
+频	率：100Hz
+日	期：2019年1月26日
+作	者：meetwit
+*/
 void readEncode(void* parameter){
 	while(1){
 		readEncodeCount++;
@@ -16,17 +23,31 @@ void readEncode(void* parameter){
 	
 }
 
+/*
+线	程：sendData
+作	用：使用printf，通过串口3打印数据，也可使用rt_kprintf,通过串口1打印数据
+频	率：10Hz
+日	期：2019年1月26日
+作	者：meetwit
+*/
 void sendData(void* parameter){
 	while(1){
 		sendDataCount++;
 		printf("leftEncoder=%d,rightEncoder=%d\r\n",leftEncoder,rightEncoder);
 		printf("%d\r\n",stcAngle.Angle[0]);
-		rt_thread_delay(1000);		//do something
+		rt_thread_delay(100);		//do something
 		rt_timer_check();
 	}
 	
 }
 
+/*
+线	程：controlMotor
+作	用：控制电机
+频	率：1000Hz
+日	期：2019年1月26日
+作	者：meetwit
+*/
 void controlMotor(void* parameter){
 	while(1){
 		controlMotorCount++;
@@ -40,6 +61,13 @@ void controlMotor(void* parameter){
 	
 }
 
+/*
+线	程：time_thread
+作	用：通过串口1打印系统时间
+频	率：1Hz
+日	期：2019年1月26日
+作	者：meetwit
+*/
 void time_thread(void* parameter){
 	rt_tick_t tick_temp;
   rt_uint8_t h=0,m=0,s=0;
