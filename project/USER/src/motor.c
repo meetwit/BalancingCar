@@ -106,3 +106,20 @@ void selfCorrecting(u8 switchOne,u8 type,s32 target){
 		motor_run(temp,target/600);
 	}
 }
+
+/**************************************************************************
+函数功能：直立PD控制
+入口参数：角度、角速度
+返回  值：直立控制PWM
+**************************************************************************/
+int balance(float Angle,float Gyro)
+{  
+//   float Bias,kp=410,kd=1.4;
+	 float Bias,kp=1,kd=0;
+	 float ZHONGZHI=0;
+	 int pwm;
+	 Bias=Angle-ZHONGZHI;       //===求出平衡的角度中值 和机械相关
+	 pwm=kp*Bias+Gyro*kd;   //===计算平衡控制的电机PWM  PD控制   kp是P系数 kd是D系数 
+	 return pwm;
+}
+

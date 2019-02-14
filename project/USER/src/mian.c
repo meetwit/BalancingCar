@@ -7,6 +7,8 @@ rt_thread_t tid2=RT_NULL;
 rt_thread_t tid3=RT_NULL;
 rt_thread_t tid_time=RT_NULL;
 
+rt_timer_t timer1=RT_NULL;
+
 int main(){
 	rt_kprintf("\r\n\r\nmeetwit rtt systerm start init!\r\n\r\n");
 	
@@ -22,7 +24,7 @@ int main(){
 	tid1=rt_thread_create("readEncode",readEncode,RT_NULL,256,6,100);
 	rt_thread_startup(tid1);
 	
-	tid2=rt_thread_create("sendData",sendData,RT_NULL,256,5,100);
+	tid2=rt_thread_create("sendData",sendData,RT_NULL,512,5,100);
 	rt_thread_startup(tid2);
 
 	tid3=rt_thread_create("controlMotor",controlMotor,RT_NULL,1024,4,100);
@@ -30,6 +32,9 @@ int main(){
 
 	tid_time=rt_thread_create("tid_time",time_thread,RT_NULL,256,7,100);
 	rt_thread_startup(tid_time);
+	
+	timer1 = rt_timer_create("t1",timer1_f,RT_NULL,10,RT_TIMER_FLAG_PERIODIC | RT_TIMER_FLAG_SOFT_TIMER);
+	rt_timer_start(timer1);
 	
 	rt_kprintf("meetwit rtt systerm started!\r\n\r\n");
 	

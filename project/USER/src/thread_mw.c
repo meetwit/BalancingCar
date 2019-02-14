@@ -17,7 +17,7 @@ void readEncode(void* parameter){
 		leftEncoder += Read_Encoder(2);
 		rightEncoder += Read_Encoder(4);
 		
-		rt_thread_delay(10);
+		rt_thread_delay(10000);
 		rt_timer_check();
 	}
 	
@@ -33,13 +33,13 @@ void readEncode(void* parameter){
 void sendData(void* parameter){
 	while(1){
 		sendDataCount++;
-		printf("leftEncoder=%d,rightEncoder=%d\r\n",leftEncoder,rightEncoder);
-		printf("%d\r\n",stcAngle.Angle[0]);
-		rt_thread_delay(100);		//do something
+//		printf("leftEncoder=%d,rightEncoder=%d\r\n",leftEncoder,rightEncoder);
+		rt_thread_delay(1000);		//do something
 		rt_timer_check();
 	}
 	
 }
+
 
 /*
 线	程：controlMotor
@@ -49,16 +49,38 @@ void sendData(void* parameter){
 作	者：meetwit
 */
 void controlMotor(void* parameter){
+	float temp1,temp2,temp3;
+	temp1 = 32768/180.0;			//角度
+	temp2 = 32768/2000.0;			//角速度
+	temp3 = 32768/16.0;				//角加速度
 	while(1){
 		controlMotorCount++;
 //		selfCorrecting('l',1,leftEncoder-600000);
-		selfCorrecting('r',1,rightEncoder-60000);
+//		selfCorrecting('r',1,rightEncoder-60000);
 //		
 //		motor_run(1,10);
-		rt_thread_delay(1);
+		
+//		temp[i++] = balance(stcAngle.Angle[0]/temp1,stcGyro.w[0]/temp2);
+//		if(i>40){
+//			i=0;
+//			for(j=0;j<40;j++)
+//			printf("%d\r\n",temp[j]);
+//		}
+//	  motor_run(3,balance(stcAngle.Angle[0]/temp1,stcGyro.w[0]/temp2)); 
+//	  motor_run(2,balance(stcAngle.Angle[0]/temp1,stcGyro.w[0]/temp2)); 
+		
+//		motor_run(4,20); 
+//	  motor_run(1,20); 
+		rt_thread_delay(5);
 		rt_timer_check();
 	}
 	
+}
+
+void timer1_f(void* parameter){
+	Rx_Tm3--;
+	if(Rx_Tm3==1)
+	Task_Pc3();
 }
 
 /*

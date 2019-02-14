@@ -1,5 +1,5 @@
 Dependencies for Project 'balancingCar', Target 'balancingCar': (DO NOT MODIFY !)
-F (.\USER\src\mian.c)(0x5C4C05C3)(--c99 -c --cpu Cortex-M3 -g -O0 --apcs=interwork --split_sections -I .\USER\inc-I.\RTE\Device\STM32F103C8-I.\RTE\RTOS-I.\RTE\_balancingCar-IC:\keil32\ARM\PACK\ARM\CMSIS\5.0.1\CMSIS\Include-IC:\keil32\ARM\PACK\Keil\STM32F1xx_DFP\1.1.0\Device\Include-IC:\keil32\ARM\PACK\rt-thread\rtthread\3.0.3\include-D__UVISION_VERSION="524" -D_RTE_ -DSTM32F10X_MD-o .\objects\mian.o --omf_browse .\objects\mian.crf --depend .\objects\mian.d)
+F (.\USER\src\mian.c)(0x5C56F8D6)(--c99 -c --cpu Cortex-M3 -g -O0 --apcs=interwork --split_sections -I .\USER\inc-I.\RTE\Device\STM32F103C8-I.\RTE\RTOS-I.\RTE\_balancingCar-IC:\keil32\ARM\PACK\ARM\CMSIS\5.0.1\CMSIS\Include-IC:\keil32\ARM\PACK\Keil\STM32F1xx_DFP\1.1.0\Device\Include-IC:\keil32\ARM\PACK\rt-thread\rtthread\3.0.3\include-D__UVISION_VERSION="524" -D_RTE_ -DSTM32F10X_MD-o .\objects\mian.o --omf_browse .\objects\mian.crf --depend .\objects\mian.d)
 I (.\USER\inc\main.h)(0x5C4C02E5)
 I (C:\keil32\ARM\ARMCC\include\stdio.h)(0x588B8344)
 I (C:\keil32\ARM\PACK\Keil\STM32F1xx_DFP\1.1.0\Device\Include\stm32f10x.h)(0x53BA0D60)
@@ -29,9 +29,9 @@ I (C:\keil32\ARM\ARMCC\include\signal.h)(0x588B8344)
 I (C:\keil32\ARM\PACK\rt-thread\rtthread\3.0.3\include\libc\libc_fdset.h)(0x5A991478)
 I (C:\keil32\ARM\PACK\rt-thread\rtthread\3.0.3\include\rtservice.h)(0x5A991478)
 I (C:\keil32\ARM\PACK\rt-thread\rtthread\3.0.3\include\rtm.h)(0x5A991478)
-I (.\USER\inc\thread_mw.h)(0x5C4C052D)
+I (.\USER\inc\thread_mw.h)(0x5C56F361)
 I (C:\keil32\ARM\ARMCC\include\string.h)(0x588B8344)
-I (.\USER\inc\motor.h)(0x5C4C16B1)
+I (.\USER\inc\motor.h)(0x5C56F36F)
 I (.\USER\inc\encoder.h)(0x5C4BFC7D)
 I (.\USER\inc\JY901.h)(0x5C1CDC70)
 F (.\USER\src\encoder.c)(0x5C4C02E5)(--c99 -c --cpu Cortex-M3 -g -O0 --apcs=interwork --split_sections -I .\USER\inc-I.\RTE\Device\STM32F103C8-I.\RTE\RTOS-I.\RTE\_balancingCar-IC:\keil32\ARM\PACK\ARM\CMSIS\5.0.1\CMSIS\Include-IC:\keil32\ARM\PACK\Keil\STM32F1xx_DFP\1.1.0\Device\Include-IC:\keil32\ARM\PACK\rt-thread\rtthread\3.0.3\include-D__UVISION_VERSION="524" -D_RTE_ -DSTM32F10X_MD-o .\objects\encoder.o --omf_browse .\objects\encoder.crf --depend .\objects\encoder.d)
@@ -64,12 +64,12 @@ I (C:\keil32\ARM\ARMCC\include\signal.h)(0x588B8344)
 I (C:\keil32\ARM\PACK\rt-thread\rtthread\3.0.3\include\libc\libc_fdset.h)(0x5A991478)
 I (C:\keil32\ARM\PACK\rt-thread\rtthread\3.0.3\include\rtservice.h)(0x5A991478)
 I (C:\keil32\ARM\PACK\rt-thread\rtthread\3.0.3\include\rtm.h)(0x5A991478)
-I (.\USER\inc\thread_mw.h)(0x5C4C052D)
+I (.\USER\inc\thread_mw.h)(0x5C56F361)
 I (C:\keil32\ARM\ARMCC\include\string.h)(0x588B8344)
-I (.\USER\inc\motor.h)(0x5C4C16B1)
+I (.\USER\inc\motor.h)(0x5C56F36F)
 I (.\USER\inc\encoder.h)(0x5C4BFC7D)
 I (.\USER\inc\JY901.h)(0x5C1CDC70)
-F (.\USER\src\motor.c)(0x5C4C27CF)(--c99 -c --cpu Cortex-M3 -g -O0 --apcs=interwork --split_sections -I .\USER\inc-I.\RTE\Device\STM32F103C8-I.\RTE\RTOS-I.\RTE\_balancingCar-IC:\keil32\ARM\PACK\ARM\CMSIS\5.0.1\CMSIS\Include-IC:\keil32\ARM\PACK\Keil\STM32F1xx_DFP\1.1.0\Device\Include-IC:\keil32\ARM\PACK\rt-thread\rtthread\3.0.3\include-D__UVISION_VERSION="524" -D_RTE_ -DSTM32F10X_MD-o .\objects\motor.o --omf_browse .\objects\motor.crf --depend .\objects\motor.d)
+F (.\USER\src\motor.c)(0x5C5701CF)(--c99 -c --cpu Cortex-M3 -g -O0 --apcs=interwork --split_sections -I .\USER\inc-I.\RTE\Device\STM32F103C8-I.\RTE\RTOS-I.\RTE\_balancingCar-IC:\keil32\ARM\PACK\ARM\CMSIS\5.0.1\CMSIS\Include-IC:\keil32\ARM\PACK\Keil\STM32F1xx_DFP\1.1.0\Device\Include-IC:\keil32\ARM\PACK\rt-thread\rtthread\3.0.3\include-D__UVISION_VERSION="524" -D_RTE_ -DSTM32F10X_MD-o .\objects\motor.o --omf_browse .\objects\motor.crf --depend .\objects\motor.d)
 I (.\USER\inc\main.h)(0x5C4C02E5)
 I (C:\keil32\ARM\ARMCC\include\stdio.h)(0x588B8344)
 I (C:\keil32\ARM\PACK\Keil\STM32F1xx_DFP\1.1.0\Device\Include\stm32f10x.h)(0x53BA0D60)
@@ -99,9 +99,9 @@ I (C:\keil32\ARM\ARMCC\include\signal.h)(0x588B8344)
 I (C:\keil32\ARM\PACK\rt-thread\rtthread\3.0.3\include\libc\libc_fdset.h)(0x5A991478)
 I (C:\keil32\ARM\PACK\rt-thread\rtthread\3.0.3\include\rtservice.h)(0x5A991478)
 I (C:\keil32\ARM\PACK\rt-thread\rtthread\3.0.3\include\rtm.h)(0x5A991478)
-I (.\USER\inc\thread_mw.h)(0x5C4C052D)
+I (.\USER\inc\thread_mw.h)(0x5C56F361)
 I (C:\keil32\ARM\ARMCC\include\string.h)(0x588B8344)
-I (.\USER\inc\motor.h)(0x5C4C16B1)
+I (.\USER\inc\motor.h)(0x5C56F36F)
 I (.\USER\inc\encoder.h)(0x5C4BFC7D)
 I (.\USER\inc\JY901.h)(0x5C1CDC70)
 F (.\USER\src\usart1.c)(0x5C4C0845)(--c99 -c --cpu Cortex-M3 -g -O0 --apcs=interwork --split_sections -I .\USER\inc-I.\RTE\Device\STM32F103C8-I.\RTE\RTOS-I.\RTE\_balancingCar-IC:\keil32\ARM\PACK\ARM\CMSIS\5.0.1\CMSIS\Include-IC:\keil32\ARM\PACK\Keil\STM32F1xx_DFP\1.1.0\Device\Include-IC:\keil32\ARM\PACK\rt-thread\rtthread\3.0.3\include-D__UVISION_VERSION="524" -D_RTE_ -DSTM32F10X_MD-o .\objects\usart1.o --omf_browse .\objects\usart1.crf --depend .\objects\usart1.d)
@@ -134,9 +134,9 @@ I (C:\keil32\ARM\ARMCC\include\signal.h)(0x588B8344)
 I (C:\keil32\ARM\PACK\rt-thread\rtthread\3.0.3\include\libc\libc_fdset.h)(0x5A991478)
 I (C:\keil32\ARM\PACK\rt-thread\rtthread\3.0.3\include\rtservice.h)(0x5A991478)
 I (C:\keil32\ARM\PACK\rt-thread\rtthread\3.0.3\include\rtm.h)(0x5A991478)
-I (.\USER\inc\thread_mw.h)(0x5C4C052D)
+I (.\USER\inc\thread_mw.h)(0x5C56F361)
 I (C:\keil32\ARM\ARMCC\include\string.h)(0x588B8344)
-I (.\USER\inc\motor.h)(0x5C4C16B1)
+I (.\USER\inc\motor.h)(0x5C56F36F)
 I (.\USER\inc\encoder.h)(0x5C4BFC7D)
 I (.\USER\inc\JY901.h)(0x5C1CDC70)
 F (.\USER\src\usart2.c)(0x5C4C02E3)(--c99 -c --cpu Cortex-M3 -g -O0 --apcs=interwork --split_sections -I .\USER\inc-I.\RTE\Device\STM32F103C8-I.\RTE\RTOS-I.\RTE\_balancingCar-IC:\keil32\ARM\PACK\ARM\CMSIS\5.0.1\CMSIS\Include-IC:\keil32\ARM\PACK\Keil\STM32F1xx_DFP\1.1.0\Device\Include-IC:\keil32\ARM\PACK\rt-thread\rtthread\3.0.3\include-D__UVISION_VERSION="524" -D_RTE_ -DSTM32F10X_MD-o .\objects\usart2.o --omf_browse .\objects\usart2.crf --depend .\objects\usart2.d)
@@ -169,12 +169,12 @@ I (C:\keil32\ARM\ARMCC\include\signal.h)(0x588B8344)
 I (C:\keil32\ARM\PACK\rt-thread\rtthread\3.0.3\include\libc\libc_fdset.h)(0x5A991478)
 I (C:\keil32\ARM\PACK\rt-thread\rtthread\3.0.3\include\rtservice.h)(0x5A991478)
 I (C:\keil32\ARM\PACK\rt-thread\rtthread\3.0.3\include\rtm.h)(0x5A991478)
-I (.\USER\inc\thread_mw.h)(0x5C4C052D)
+I (.\USER\inc\thread_mw.h)(0x5C56F361)
 I (C:\keil32\ARM\ARMCC\include\string.h)(0x588B8344)
-I (.\USER\inc\motor.h)(0x5C4C16B1)
+I (.\USER\inc\motor.h)(0x5C56F36F)
 I (.\USER\inc\encoder.h)(0x5C4BFC7D)
 I (.\USER\inc\JY901.h)(0x5C1CDC70)
-F (.\USER\src\usart3.c)(0x5C4C0845)(--c99 -c --cpu Cortex-M3 -g -O0 --apcs=interwork --split_sections -I .\USER\inc-I.\RTE\Device\STM32F103C8-I.\RTE\RTOS-I.\RTE\_balancingCar-IC:\keil32\ARM\PACK\ARM\CMSIS\5.0.1\CMSIS\Include-IC:\keil32\ARM\PACK\Keil\STM32F1xx_DFP\1.1.0\Device\Include-IC:\keil32\ARM\PACK\rt-thread\rtthread\3.0.3\include-D__UVISION_VERSION="524" -D_RTE_ -DSTM32F10X_MD-o .\objects\usart3.o --omf_browse .\objects\usart3.crf --depend .\objects\usart3.d)
+F (.\USER\src\usart3.c)(0x5C5A51BF)(--c99 -c --cpu Cortex-M3 -g -O0 --apcs=interwork --split_sections -I .\USER\inc-I.\RTE\Device\STM32F103C8-I.\RTE\RTOS-I.\RTE\_balancingCar-IC:\keil32\ARM\PACK\ARM\CMSIS\5.0.1\CMSIS\Include-IC:\keil32\ARM\PACK\Keil\STM32F1xx_DFP\1.1.0\Device\Include-IC:\keil32\ARM\PACK\rt-thread\rtthread\3.0.3\include-D__UVISION_VERSION="524" -D_RTE_ -DSTM32F10X_MD-o .\objects\usart3.o --omf_browse .\objects\usart3.crf --depend .\objects\usart3.d)
 I (.\USER\inc\main.h)(0x5C4C02E5)
 I (C:\keil32\ARM\ARMCC\include\stdio.h)(0x588B8344)
 I (C:\keil32\ARM\PACK\Keil\STM32F1xx_DFP\1.1.0\Device\Include\stm32f10x.h)(0x53BA0D60)
@@ -204,12 +204,12 @@ I (C:\keil32\ARM\ARMCC\include\signal.h)(0x588B8344)
 I (C:\keil32\ARM\PACK\rt-thread\rtthread\3.0.3\include\libc\libc_fdset.h)(0x5A991478)
 I (C:\keil32\ARM\PACK\rt-thread\rtthread\3.0.3\include\rtservice.h)(0x5A991478)
 I (C:\keil32\ARM\PACK\rt-thread\rtthread\3.0.3\include\rtm.h)(0x5A991478)
-I (.\USER\inc\thread_mw.h)(0x5C4C052D)
+I (.\USER\inc\thread_mw.h)(0x5C56F361)
 I (C:\keil32\ARM\ARMCC\include\string.h)(0x588B8344)
-I (.\USER\inc\motor.h)(0x5C4C16B1)
+I (.\USER\inc\motor.h)(0x5C56F36F)
 I (.\USER\inc\encoder.h)(0x5C4BFC7D)
 I (.\USER\inc\JY901.h)(0x5C1CDC70)
-F (.\USER\src\thread_mw.c)(0x5C4C27CA)(--c99 -c --cpu Cortex-M3 -g -O0 --apcs=interwork --split_sections -I .\USER\inc-I.\RTE\Device\STM32F103C8-I.\RTE\RTOS-I.\RTE\_balancingCar-IC:\keil32\ARM\PACK\ARM\CMSIS\5.0.1\CMSIS\Include-IC:\keil32\ARM\PACK\Keil\STM32F1xx_DFP\1.1.0\Device\Include-IC:\keil32\ARM\PACK\rt-thread\rtthread\3.0.3\include-D__UVISION_VERSION="524" -D_RTE_ -DSTM32F10X_MD-o .\objects\thread_mw.o --omf_browse .\objects\thread_mw.crf --depend .\objects\thread_mw.d)
+F (.\USER\src\thread_mw.c)(0x5C5A51BF)(--c99 -c --cpu Cortex-M3 -g -O0 --apcs=interwork --split_sections -I .\USER\inc-I.\RTE\Device\STM32F103C8-I.\RTE\RTOS-I.\RTE\_balancingCar-IC:\keil32\ARM\PACK\ARM\CMSIS\5.0.1\CMSIS\Include-IC:\keil32\ARM\PACK\Keil\STM32F1xx_DFP\1.1.0\Device\Include-IC:\keil32\ARM\PACK\rt-thread\rtthread\3.0.3\include-D__UVISION_VERSION="524" -D_RTE_ -DSTM32F10X_MD-o .\objects\thread_mw.o --omf_browse .\objects\thread_mw.crf --depend .\objects\thread_mw.d)
 I (.\USER\inc\main.h)(0x5C4C02E5)
 I (C:\keil32\ARM\ARMCC\include\stdio.h)(0x588B8344)
 I (C:\keil32\ARM\PACK\Keil\STM32F1xx_DFP\1.1.0\Device\Include\stm32f10x.h)(0x53BA0D60)
@@ -239,9 +239,9 @@ I (C:\keil32\ARM\ARMCC\include\signal.h)(0x588B8344)
 I (C:\keil32\ARM\PACK\rt-thread\rtthread\3.0.3\include\libc\libc_fdset.h)(0x5A991478)
 I (C:\keil32\ARM\PACK\rt-thread\rtthread\3.0.3\include\rtservice.h)(0x5A991478)
 I (C:\keil32\ARM\PACK\rt-thread\rtthread\3.0.3\include\rtm.h)(0x5A991478)
-I (.\USER\inc\thread_mw.h)(0x5C4C052D)
+I (.\USER\inc\thread_mw.h)(0x5C56F361)
 I (C:\keil32\ARM\ARMCC\include\string.h)(0x588B8344)
-I (.\USER\inc\motor.h)(0x5C4C16B1)
+I (.\USER\inc\motor.h)(0x5C56F36F)
 I (.\USER\inc\encoder.h)(0x5C4BFC7D)
 I (.\USER\inc\JY901.h)(0x5C1CDC70)
 F (.\USER\src\JY901.c)(0x5C4C04AA)(--c99 -c --cpu Cortex-M3 -g -O0 --apcs=interwork --split_sections -I .\USER\inc-I.\RTE\Device\STM32F103C8-I.\RTE\RTOS-I.\RTE\_balancingCar-IC:\keil32\ARM\PACK\ARM\CMSIS\5.0.1\CMSIS\Include-IC:\keil32\ARM\PACK\Keil\STM32F1xx_DFP\1.1.0\Device\Include-IC:\keil32\ARM\PACK\rt-thread\rtthread\3.0.3\include-D__UVISION_VERSION="524" -D_RTE_ -DSTM32F10X_MD-o .\objects\jy901.o --omf_browse .\objects\jy901.crf --depend .\objects\jy901.d)
@@ -254,7 +254,7 @@ I (C:\keil32\ARM\ARMCC\include\stdint.h)(0x5BCFCF5B)
 I (C:\keil32\ARM\PACK\ARM\CMSIS\5.0.1\CMSIS\Include\cmsis_compiler.h)(0x5898498A)
 I (C:\keil32\ARM\PACK\ARM\CMSIS\5.0.1\CMSIS\Include\cmsis_armcc.h)(0x5898498A)
 I (C:\keil32\ARM\PACK\Keil\STM32F1xx_DFP\1.1.0\Device\Include\system_stm32f10x.h)(0x4F1E2E3C)
-I (.\USER\inc\thread_mw.h)(0x5C4C052D)
+I (.\USER\inc\thread_mw.h)(0x5C56F361)
 I (C:\keil32\ARM\PACK\rt-thread\rtthread\3.0.3\include\rtthread.h)(0x5A9A33B8)
 I (.\RTE\RTOS\rtconfig.h)(0x5C4C0AC3)
 I (C:\keil32\ARM\PACK\rt-thread\rtthread\3.0.3\include\rtdebug.h)(0x5A9A33B8)
@@ -586,9 +586,9 @@ I (C:\keil32\ARM\PACK\Keil\STM32F1xx_DFP\1.1.0\Device\Include\system_stm32f10x.h
 I (.\USER\inc\usart1.h)(0x5C4C0205)
 I (.\USER\inc\usart2.h)(0x5BC9857E)
 I (.\USER\inc\usart3.h)(0x5A0EC514)
-I (.\USER\inc\thread_mw.h)(0x5C4C052D)
+I (.\USER\inc\thread_mw.h)(0x5C56F361)
 I (C:\keil32\ARM\ARMCC\include\string.h)(0x588B8344)
-I (.\USER\inc\motor.h)(0x5C4C16B1)
+I (.\USER\inc\motor.h)(0x5C56F36F)
 I (.\USER\inc\encoder.h)(0x5C4BFC7D)
 I (.\USER\inc\JY901.h)(0x5C1CDC70)
 F (RTE\RTOS\rtconfig.h)(0x5C4C0AC3)()

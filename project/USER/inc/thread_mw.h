@@ -12,6 +12,8 @@ void readEncode(void* parameter);
 void sendData(void* parameter);
 void controlMotor(void* parameter);
 
+void timer1_f(void* parameter);
+
 void time_thread(void* parameter);
 
 #endif

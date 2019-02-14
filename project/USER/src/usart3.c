@@ -144,11 +144,14 @@ void PcTx_String3(u8 *str){
 *************************************************************/
 void Task_Pc3()
 {
-	if(Rx_End3==1){
-		PcTx_String3(Rx_Buf3);
-	
+		//PcTx_String3(Rx_Buf3);
+	if(strcmp((void *)Rx_Buf3,"stop")==0){
+		motor_run(0,0);
+	}
+	if(Rx_Buf3[0]=='p'){
+		
+	}
 		Rx_End3=0;
 		Rx_Len3=0;
 		memset(Rx_Buf3,0,sizeof(Rx_Buf3));
-	}
 }
