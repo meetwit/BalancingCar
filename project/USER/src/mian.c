@@ -1,6 +1,8 @@
 #include "main.h"
 
-//±àÂëÆ÷ Ò»È¦500*30¸öÂö³å£¬ËÄ±¶Æµºó500*30*4=60000 ¼õËÙ±ÈÊÇ30
+//ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ Ò»È¦500*30ï¿½ï¿½ï¿½ï¿½ï¿½å£¬ï¿½Ä±ï¿½Æµï¿½ï¿½500*30*4=60000 ï¿½ï¿½ï¿½Ù±ï¿½ï¿½ï¿½30
+
+//hello this is commit by vscode
 
 rt_thread_t tid1=RT_NULL;
 rt_thread_t tid2=RT_NULL;
@@ -16,7 +18,7 @@ int main(){
 	
 	usart3_init(115200);
 	
-	/*×ÊÔ´³õÊ¼»¯*/
+	/*ï¿½ï¿½Ô´ï¿½ï¿½Ê¼ï¿½ï¿½*/
 	Encoder_Init_TIM2();
 	Encoder_Init_TIM4();
 	PWM_Init_TIM1(PWMMAX-1,0);	
