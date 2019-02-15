@@ -1,5 +1,5 @@
 Dependencies for Project 'balancingCar', Target 'balancingCar': (DO NOT MODIFY !)
-F (.\USER\src\mian.c)(0x5C56F8D6)(--c99 -c --cpu Cortex-M3 -g -O0 --apcs=interwork --split_sections -I .\USER\inc-I.\RTE\Device\STM32F103C8-I.\RTE\RTOS-I.\RTE\_balancingCar-IC:\keil32\ARM\PACK\ARM\CMSIS\5.0.1\CMSIS\Include-IC:\keil32\ARM\PACK\Keil\STM32F1xx_DFP\1.1.0\Device\Include-IC:\keil32\ARM\PACK\rt-thread\rtthread\3.0.3\include-D__UVISION_VERSION="524" -D_RTE_ -DSTM32F10X_MD-o .\objects\mian.o --omf_browse .\objects\mian.crf --depend .\objects\mian.d)
+F (.\USER\src\mian.c)(0x5C65A59E)(--c99 -c --cpu Cortex-M3 -g -O0 --apcs=interwork --split_sections -I .\USER\inc-I.\RTE\Device\STM32F103C8-I.\RTE\RTOS-I.\RTE\_balancingCar-IC:\keil32\ARM\PACK\ARM\CMSIS\5.0.1\CMSIS\Include-IC:\keil32\ARM\PACK\Keil\STM32F1xx_DFP\1.1.0\Device\Include-IC:\keil32\ARM\PACK\rt-thread\rtthread\3.0.3\include-D__UVISION_VERSION="524" -D_RTE_ -DSTM32F10X_MD-o .\objects\mian.o --omf_browse .\objects\mian.crf --depend .\objects\mian.d)
 I (.\USER\inc\main.h)(0x5C4C02E5)
 I (C:\keil32\ARM\ARMCC\include\stdio.h)(0x588B8344)
 I (C:\keil32\ARM\PACK\Keil\STM32F1xx_DFP\1.1.0\Device\Include\stm32f10x.h)(0x53BA0D60)
