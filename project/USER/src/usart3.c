@@ -134,6 +134,22 @@ void PcTx_String3(u8 *str){
 	}		
 }
 
+	u8 findFirstChar(u8 * a,char a2,u8 len){
+	for(u8 i=0;i<len;i++){
+		if(a[i]==a2){
+			return i;
+		}
+	}
+		return len;
+}
+	u8 findLastChar(u8 * a,char a2,u8 len){
+	for(u8 i=len;i>0;i--){
+		if(a[i-1]==a2){
+			return i-1;
+		}
+	}
+		return len;
+}
 /************************************************************
 函数名：Task_Pc3()
 形  参：无
@@ -144,13 +160,46 @@ void PcTx_String3(u8 *str){
 *************************************************************/
 void Task_Pc3()
 {
-		//PcTx_String3(Rx_Buf3);
-	if(strcmp((void *)Rx_Buf3,"stop")==0){
-		motor_run(0,0);
-	}
-	if(Rx_Buf3[0]=='p'){
+	
+	/*
+	p=65536,i=65536,d=65536
+	01234567890123456789012345
+	*/
+	u32 mwData[10];
+	char separator[]={'p','i','d'};
+	u8 mwAddr[10][2];
+	u32 temp=0;
+	u32 longNum[]={
+	1,
+	10,
+	100,
+	1000,
+	10000,
+	100000,
+	1000000,
+	10000000,
+	100000000,
+	1000000000
+	};
+	
+	memset(mwData,0,sizeof(mwData));		//清除临时数值
+	for(u8 i=0;i<sizeof(separator);i++){
+		/*取得开始结束地址*/
+		mwAddr[i][0] = findFirstChar(Rx_Buf3,separator[i],Rx_Len3);
+		mwAddr[i][1] = findLastChar(Rx_Buf3,separator[i],Rx_Len3);
 		
+		/*满足x number x形式*/
+		if(mwAddr[i][0]!=mwAddr[i][1])
+		for(u8 j=0,len=mwAddr[i][1]-mwAddr[i][0]-1;j<len;j++){
+			temp = (Rx_Buf3[mwAddr[i][1]-1-j]-48)*longNum[j];
+			mwData[i] += temp;
+		}	
 	}
+	
+	printf("p=%d\r\n",mwData[0]);
+	printf("i=%d\r\n",mwData[1]);
+	printf("d=%d\r\n",mwData[2]);
+	
 		Rx_End3=0;
 		Rx_Len3=0;
 		memset(Rx_Buf3,0,sizeof(Rx_Buf3));
