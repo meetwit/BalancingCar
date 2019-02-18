@@ -36,3 +36,4 @@
 .\objects\board.o: .\USER\inc\main.h
 .\objects\board.o: .\USER\inc\encoder.h
 .\objects\board.o: .\USER\inc\JY901.h
+.\objects\board.o: .\USER\inc\xnumx.h

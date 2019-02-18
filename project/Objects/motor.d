@@ -35,3 +35,4 @@
 .\objects\motor.o: .\USER\inc\main.h
 .\objects\motor.o: .\USER\inc\encoder.h
 .\objects\motor.o: .\USER\inc\JY901.h
+.\objects\motor.o: .\USER\inc\xnumx.h

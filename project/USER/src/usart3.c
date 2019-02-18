@@ -1,6 +1,9 @@
 #include "main.h"
 /*一般.c定义数据*/
-u8 Rx_Buf3[Rx_Max3];
+u32 m[10];
+char s[]={'p','i','d'};
+
+char Rx_Buf3[Rx_Max3];
 u16 Rx_End3,Rx_Len3,Rx_Tm3;
 
 //加入以下代码,支持printf函数,而不需要选择use MicroLIB	  
@@ -93,7 +96,7 @@ void usart3_init(u32 baud){
 作  者：meetwit
 时  间：2017年11月17日19:47:54
 *************************************************************/
-void PcTx_Byte3(u8 Tx_data){
+void PcTx_Byte3(char Tx_data){
 	while(!(USART3->SR &(0x1<<7)));
 	USART3 ->DR = Tx_data;
 	
@@ -107,7 +110,7 @@ void PcTx_Byte3(u8 Tx_data){
 作  者：meetwit
 时  间：2017年11月17日19:47:38
 *************************************************************/
-void PcTx_String3(u8 *str){
+void PcTx_String3(char *str){
 		while(*str !='\0'){
 			PcTx_Byte3(*(str++));
 		}
@@ -134,22 +137,6 @@ void PcTx_String3(u8 *str){
 	}		
 }
 
-	u8 findFirstChar(u8 * a,char a2,u8 len){
-	for(u8 i=0;i<len;i++){
-		if(a[i]==a2){
-			return i;
-		}
-	}
-		return len;
-}
-	u8 findLastChar(u8 * a,char a2,u8 len){
-	for(u8 i=len;i>0;i--){
-		if(a[i-1]==a2){
-			return i-1;
-		}
-	}
-		return len;
-}
 /************************************************************
 函数名：Task_Pc3()
 形  参：无
@@ -161,44 +148,13 @@ void PcTx_String3(u8 *str){
 void Task_Pc3()
 {
 	
-	/*
-	p=65536,i=65536,d=65536
-	01234567890123456789012345
-	*/
-	u32 mwData[10];
-	char separator[]={'p','i','d'};
-	u8 mwAddr[10][2];
-	u32 temp=0;
-	u32 longNum[]={
-	1,
-	10,
-	100,
-	1000,
-	10000,
-	100000,
-	1000000,
-	10000000,
-	100000000,
-	1000000000
-	};
-	
-	memset(mwData,0,sizeof(mwData));		//清除临时数值
-	for(u8 i=0;i<sizeof(separator);i++){
-		/*取得开始结束地址*/
-		mwAddr[i][0] = findFirstChar(Rx_Buf3,separator[i],Rx_Len3);
-		mwAddr[i][1] = findLastChar(Rx_Buf3,separator[i],Rx_Len3);
-		
-		/*满足x number x形式*/
-		if(mwAddr[i][0]!=mwAddr[i][1])
-		for(u8 j=0,len=mwAddr[i][1]-mwAddr[i][0]-1;j<len;j++){
-			temp = (Rx_Buf3[mwAddr[i][1]-1-j]-48)*longNum[j];
-			mwData[i] += temp;
-		}	
-	}
-	
-	printf("p=%d\r\n",mwData[0]);
-	printf("i=%d\r\n",mwData[1]);
-	printf("d=%d\r\n",mwData[2]);
+
+xnumx(Rx_Buf3,s,m);
+
+
+	printf("p=%d\r\n",m[0]);
+	printf("i=%d\r\n",m[1]);
+	printf("d=%d\r\n",m[2]);
 	
 		Rx_End3=0;
 		Rx_Len3=0;

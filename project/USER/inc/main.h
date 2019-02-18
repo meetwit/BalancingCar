@@ -14,8 +14,11 @@
 #include "encoder.h"
 #include "JY901.h"
 
-	#define PWMMAX 3600	
+#include "xnumx.h"
 
+	#define PWMMAX 3600	
+extern u32 m[10];
+extern char s[];
 
 #endif
 

@@ -35,3 +35,4 @@
 .\objects\mian.o: .\USER\inc\main.h
 .\objects\mian.o: .\USER\inc\encoder.h
 .\objects\mian.o: .\USER\inc\JY901.h
+.\objects\mian.o: .\USER\inc\xnumx.h

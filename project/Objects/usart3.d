@@ -35,3 +35,4 @@
 .\objects\usart3.o: .\USER\inc\main.h
 .\objects\usart3.o: .\USER\inc\encoder.h
 .\objects\usart3.o: .\USER\inc\JY901.h
+.\objects\usart3.o: .\USER\inc\xnumx.h

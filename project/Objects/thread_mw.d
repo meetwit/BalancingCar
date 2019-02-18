@@ -35,3 +35,4 @@
 .\objects\thread_mw.o: .\USER\inc\main.h
 .\objects\thread_mw.o: .\USER\inc\encoder.h
 .\objects\thread_mw.o: .\USER\inc\JY901.h
+.\objects\thread_mw.o: .\USER\inc\xnumx.h
