@@ -17,8 +17,8 @@
 #include "xnumx.h"
 
 	#define PWMMAX 3600	
-extern s32 m[10];
-extern char s[];
+//extern s32 m[10];
+//extern char s[];
 
 #endif
 

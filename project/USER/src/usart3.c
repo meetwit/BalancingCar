@@ -1,14 +1,13 @@
 #include "main.h"
 /*一般.c定义数据*/
-s32 m[10];
-char s[]={'p','i','d'};
+
 
 char Rx_Buf3[Rx_Max3];
 u16 Rx_End3,Rx_Len3,Rx_Tm3;
 
 //加入以下代码,支持printf函数,而不需要选择use MicroLIB	  
 #if 1
-#pragma import(__use_no_semihosting)             
+//#pragma import(__use_no_semihosting)             
 //标准库需要的支持函数                 
 struct __FILE 
 { 
@@ -148,13 +147,15 @@ void PcTx_String3(char *str){
 void Task_Pc3()
 {
 	
+float m[10];
+char s[]={'p','i','d'};
 
 xnumx(Rx_Buf3,Rx_Len3,s,m,3);
 
 
-	printf("p=%d\r\n",m[0]);
-	printf("i=%d\r\n",m[1]);
-	printf("d=%d\r\n",m[2]);
+	printf("p=%f\r\n",m[0]);
+	printf("i=%f\r\n",m[1]);
+	printf("d=%f\r\n",m[2]);
 	
 		Rx_End3=0;
 		Rx_Len3=0;

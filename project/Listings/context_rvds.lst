@@ -305,10 +305,10 @@ Command Line: --debug --xref --diag_suppress=9931 --cpu=Cortex-M3 --apcs=interw
 ork --depend=.\objects\context_rvds.d -o.\objects\context_rvds.o -I.\RTE\Device
 \STM32F103C8 -I.\RTE\RTOS -I.\RTE\_balancingCar -IC:\keil32\ARM\PACK\ARM\CMSIS\
 5.0.1\CMSIS\Include -IC:\keil32\ARM\PACK\Keil\STM32F1xx_DFP\1.1.0\Device\Includ
-e -IC:\keil32\ARM\PACK\rt-thread\rtthread\3.0.3\include --predefine="__UVISION_
-VERSION SETA 524" --predefine="_RTE_ SETA 1" --predefine="STM32F10X_MD SETA 1" 
---list=.\listings\context_rvds.lst C:\keil32\ARM\PACK\rt-thread\rtthread\3.0.3\
-libcpu\arm\cortex-m3\context_rvds.S
+e -IC:\keil32\ARM\PACK\rt-thread\rtthread\3.0.3\include --predefine="__MICROLIB
+ SETA 1" --predefine="__UVISION_VERSION SETA 524" --predefine="_RTE_ SETA 1" --
+predefine="STM32F10X_MD SETA 1" --list=.\listings\context_rvds.lst C:\keil32\AR
+M\PACK\rt-thread\rtthread\3.0.3\libcpu\arm\cortex-m3\context_rvds.S
 
 
 
@@ -567,4 +567,4 @@ Symbol: rt_thread_switch_interrupt_flag
 m\cortex-m3\context_rvds.S
 
 4 symbols
-356 symbols in table
+357 symbols in table

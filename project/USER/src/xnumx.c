@@ -20,7 +20,7 @@ u8 findLastChar(char * a,char a2,char len){
 }
 
 
-void xnumx(char * rx,char rxLen,char * separator,s32 * mwData,char mwDataLen)
+void xnumx(char * rx,char rxLen,char * separator,float * mwData,char mwDataLen)
 {
 	
 	/*
@@ -52,27 +52,31 @@ void xnumx(char * rx,char rxLen,char * separator,s32 * mwData,char mwDataLen)
 	
 	//printf("sizeof(mwData)=%d\r\n",sizeof(m));
 	
-	for(u8 i=0;i<mwDataLen;i++){
+	for(u8 k=0,i=0;i<mwDataLen;i++,k=0){
 		/*取得开始结束地址*/
 		mwAddr[i][0] = findFirstChar(rx,separator[i],rxLen);
 		mwAddr[i][1] = findLastChar(rx,separator[i],rxLen);
 		
 		/*满足x number x形式*/
 		if(mwAddr[i][0]!=mwAddr[i][1])
-		for(u8 k=0,j=0,len=mwAddr[i][1]-mwAddr[i][0]-1;j<len;j++){
+		for(u8 j=0,len=mwAddr[i][1]-mwAddr[i][0]-1;j<len;j++){
 			if(rx[mwAddr[i][1]-1-j]=='.'){
-				k=j+1;
-				break;
+				k=j;
+				continue;
 			}
-			
-			temp = (rx[mwAddr[i][1]-1-j]-48)*longNum[j];
-			mwData[i] += temp;
 			if(rx[mwAddr[i][1]-1-j]=='-'){
 				mwData[i] = 0 - mwData[i];
 				break;
 			}
-			mwData[i] = mwData[i]/longNum[k];
+			if(0==k){
+				temp = (rx[mwAddr[i][1]-1-j]-48)*longNum[j];
+			}else{
+				temp = (rx[mwAddr[i][1]-1-j]-48)*longNum[j-1];
+			}
+			mwData[i] += temp;
+			
 		}	
+			mwData[i] = mwData[i]/longNum[k];
 	}
 	
 	
