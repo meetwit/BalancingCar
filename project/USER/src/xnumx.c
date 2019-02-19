@@ -20,7 +20,7 @@ u8 findLastChar(char * a,char a2,char len){
 }
 
 
-void xnumx(char * rx,char rxLen,char * separator,float * mwData,char mwDataLen)
+void xnumx(char * rx,char rxLen,char * separator,double * mwData,char mwDataLen)
 {
 	
 	/*

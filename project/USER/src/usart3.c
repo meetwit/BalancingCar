@@ -147,7 +147,7 @@ void PcTx_String3(char *str){
 void Task_Pc3()
 {
 	
-float m[10];
+double m[10];
 char s[]={'p','i','d'};
 
 xnumx(Rx_Buf3,Rx_Len3,s,m,3);
