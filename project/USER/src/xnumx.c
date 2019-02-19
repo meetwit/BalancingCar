@@ -20,7 +20,7 @@ u8 findLastChar(char * a,char a2,char len){
 }
 
 
-void xnumx(char * rx,char rxLen,char * separator,u32 * mwData,char mwDataLen)
+void xnumx(char * rx,char rxLen,char * separator,s32 * mwData,char mwDataLen)
 {
 	
 	/*
@@ -30,17 +30,17 @@ void xnumx(char * rx,char rxLen,char * separator,u32 * mwData,char mwDataLen)
 	
 	u8 mwAddr[mwDataLen][2];
 	u32 temp=0;
-	u32 longNum[]={
-	1,
-	10,
-	100,
-	1000,
-	10000,
-	100000,
-	1000000,
-	10000000,
-	100000000,
-	1000000000
+	s32 longNum[]={
+	1.0,
+	10.0,
+	100.0,
+	1000.0,
+	10000.0,
+	100000.0,
+	1000000.0,
+	10000000.0,
+	100000000.0,
+	1000000000.0
 	};
 	
 	//memset(mwData,0,3);		//清除临时数值
@@ -59,9 +59,19 @@ void xnumx(char * rx,char rxLen,char * separator,u32 * mwData,char mwDataLen)
 		
 		/*满足x number x形式*/
 		if(mwAddr[i][0]!=mwAddr[i][1])
-		for(u8 j=0,len=mwAddr[i][1]-mwAddr[i][0]-1;j<len;j++){
+		for(u8 k=0,j=0,len=mwAddr[i][1]-mwAddr[i][0]-1;j<len;j++){
+			if(rx[mwAddr[i][1]-1-j]=='.'){
+				k=j+1;
+				break;
+			}
+			
 			temp = (rx[mwAddr[i][1]-1-j]-48)*longNum[j];
 			mwData[i] += temp;
+			if(rx[mwAddr[i][1]-1-j]=='-'){
+				mwData[i] = 0 - mwData[i];
+				break;
+			}
+			mwData[i] = mwData[i]/longNum[k];
 		}	
 	}
 	

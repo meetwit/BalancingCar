@@ -1,6 +1,6 @@
 #include "main.h"
 /*一般.c定义数据*/
-u32 m[10];
+s32 m[10];
 char s[]={'p','i','d'};
 
 char Rx_Buf3[Rx_Max3];

@@ -3,7 +3,7 @@
 
 #include "stm32f10x.h"
 
-void xnumx(char * rx,char rxLen,char * separator,u32 * mwData,char mwDataLen);
+void xnumx(char * rx,char rxLen,char * separator,s32 * mwData,char mwDataLen);
 
 
 
