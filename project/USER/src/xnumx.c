@@ -20,7 +20,7 @@ u8 findLastChar(char * a,char a2,char len){
 }
 
 
-void xnumx(char * rx,char * separator,u32 * mwData)
+void xnumx(char * rx,char rxLen,char * separator,u32 * mwData,char mwDataLen)
 {
 	
 	/*
@@ -28,7 +28,7 @@ void xnumx(char * rx,char * separator,u32 * mwData)
 	01234567890123456789012345
 	*/
 	
-	u8 mwAddr[10][2];
+	u8 mwAddr[mwDataLen][2];
 	u32 temp=0;
 	u32 longNum[]={
 	1,
@@ -44,16 +44,18 @@ void xnumx(char * rx,char * separator,u32 * mwData)
 	};
 	
 	//memset(mwData,0,3);		//清除临时数值
-	mwData[0]=0;
-	mwData[1]=0;
-	mwData[2]=0;
+	for(char i = 0; i < mwDataLen; i++)
+	{
+		mwData[i]=0;
+	}
+	
 	
 	//printf("sizeof(mwData)=%d\r\n",sizeof(m));
 	
-	for(u8 i=0;i<3;i++){
+	for(u8 i=0;i<mwDataLen;i++){
 		/*取得开始结束地址*/
-		mwAddr[i][0] = findFirstChar(rx,separator[i],26);
-		mwAddr[i][1] = findLastChar(rx,separator[i],26);
+		mwAddr[i][0] = findFirstChar(rx,separator[i],rxLen);
+		mwAddr[i][1] = findLastChar(rx,separator[i],rxLen);
 		
 		/*满足x number x形式*/
 		if(mwAddr[i][0]!=mwAddr[i][1])

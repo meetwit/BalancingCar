@@ -149,7 +149,7 @@ void Task_Pc3()
 {
 	
 
-xnumx(Rx_Buf3,s,m);
+xnumx(Rx_Buf3,Rx_Len3,s,m,3);
 
 
 	printf("p=%d\r\n",m[0]);
