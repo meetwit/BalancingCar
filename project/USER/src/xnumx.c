@@ -23,11 +23,6 @@ u8 findLastChar(char * a,char a2,char len){
 void xnumx(char * rx,char rxLen,char * separator,double * mwData,char mwDataLen)
 {
 	
-	/*
-	p=65536,i=65536,d=65536
-	01234567890123456789012345
-	*/
-	
 	u8 mwAddr[mwDataLen][2];
 	u32 temp=0;
 	s32 longNum[]={
