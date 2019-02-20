@@ -1,7 +1,6 @@
 #include "xnumx.h"
 #include "main.h"
 
-	
 u8 findFirstChar(char * a,char a2,char len){
 	for(u8 i=0;i<len;i++){
 		if(a[i]==a2){
@@ -37,17 +36,15 @@ void xnumx(char * rx,char rxLen,char * separator,double * mwData,char mwDataLen)
 	100000000.0,
 	1000000000.0
 	};
-//87180ca0965fd7ec05f4e2fca7b5c7de5deb1c20
-//47265eb2bf9f364ca7da24762fc45bb087b858b6
-	//memset(mwData,0,3);		//清除临时数值
+	
+	/*
+	关于清除部分代码，如果希望不发就是0，则加；如果希望不发是不改变，则不加。
 	for(char i = 0; i < mwDataLen; i++)
 	{
 		mwData[i]=0;
 	}
-	
-	
-	//printf("sizeof(mwData)=%d\r\n",sizeof(m));
-	
+	*/
+
 	for(u8 k=0,i=0;i<mwDataLen;i++,k=0){
 		/*取得开始结束地址*/
 		mwAddr[i][0] = findFirstChar(rx,separator[i],rxLen);

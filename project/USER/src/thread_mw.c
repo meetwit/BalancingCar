@@ -49,10 +49,10 @@ void sendData(void* parameter){
 作	者：meetwit
 */
 void controlMotor(void* parameter){
-//	float temp1,temp2,temp3;
-//	temp1 = 32768/180.0;			//角度
-//	temp2 = 32768/2000.0;			//角速度
-//	temp3 = 32768/16.0;				//角加速度
+	float temp1,temp2,temp3;
+	temp1 = 32768/180.0;			//角度
+	temp2 = 32768/2000.0;			//角速度
+	temp3 = 32768/16.0;				//角加速度
 	while(1){
 		controlMotorCount++;
 //		selfCorrecting('l',1,leftEncoder-600000);
@@ -66,8 +66,8 @@ void controlMotor(void* parameter){
 //			for(j=0;j<40;j++)
 //			printf("%d\r\n",temp[j]);
 //		}
-//	  motor_run(3,balance(stcAngle.Angle[0]/temp1,stcGyro.w[0]/temp2)); 
-//	  motor_run(2,balance(stcAngle.Angle[0]/temp1,stcGyro.w[0]/temp2)); 
+	  motor_run(3,balance(stcAngle.Angle[0]/temp1,stcGyro.w[0]/temp2)); 
+	  motor_run(2,balance(stcAngle.Angle[0]/temp1,stcGyro.w[0]/temp2)); 
 		
 //		motor_run(4,20); 
 //	  motor_run(1,20); 

@@ -114,8 +114,9 @@ void selfCorrecting(u8 switchOne,u8 type,s32 target){
 **************************************************************************/
 int balance(float Angle,float Gyro)
 {  
-//   float Bias,kp=410,kd=1.4;
-	 float Bias,kp=1,kd=0;
+   float Bias,kp=410,kd=1.4;
+   kp = m[0];
+   kd = m[2];
 	 float ZHONGZHI=0;
 	 int pwm;
 	 Bias=Angle-ZHONGZHI;       //===求出平衡的角度中值 和机械相关
