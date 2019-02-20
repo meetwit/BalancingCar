@@ -37,7 +37,8 @@ void xnumx(char * rx,char rxLen,char * separator,double * mwData,char mwDataLen)
 	100000000.0,
 	1000000000.0
 	};
-	
+//87180ca0965fd7ec05f4e2fca7b5c7de5deb1c20
+//47265eb2bf9f364ca7da24762fc45bb087b858b6
 	//memset(mwData,0,3);		//清除临时数值
 	for(char i = 0; i < mwDataLen; i++)
 	{
