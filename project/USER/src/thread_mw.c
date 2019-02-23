@@ -31,10 +31,18 @@ void readEncode(void* parameter){
 作	者：meetwit
 */
 void sendData(void* parameter){
+	float temp1,temp2,temp3;
+	temp1 = 32768/180.0;			//角度
+	temp2 = 32768/2000.0;			//角速度
+	temp3 = 32768/16.0;				//角加速度
 	while(1){
 		sendDataCount++;
 //		printf("leftEncoder=%d,rightEncoder=%d\r\n",leftEncoder,rightEncoder);
-		rt_thread_delay(1000);		//do something
+	printf("x=%.2f,y=%.2f,z=%.2f\r\n",stcAngle.Angle[0]/temp1,stcAngle.Angle[1]/temp1,stcAngle.Angle[2]/temp1);
+	printf("\r\np = %.2f\r\n",m[0]);
+	printf("i = %.2f\r\n",m[1]);
+	printf("d = %.2f\r\n\r\n",m[2]);
+		rt_thread_delay(3000);		//do something
 		rt_timer_check();
 	}
 	
@@ -66,11 +74,20 @@ void controlMotor(void* parameter){
 //			for(j=0;j<40;j++)
 //			printf("%d\r\n",temp[j]);
 //		}
-	  motor_run(3,balance(stcAngle.Angle[0]/temp1,stcGyro.w[0]/temp2)); 
-	  motor_run(2,balance(stcAngle.Angle[0]/temp1,stcGyro.w[0]/temp2)); 
 		
-//		motor_run(4,20); 
-//	  motor_run(1,20); 
+		if(m[5]==0){
+				if(stcAngle.Angle[0]/temp1>0){
+					motor_run(3,balance(stcAngle.Angle[0]/temp1,stcGyro.w[0]/temp2)); 
+					motor_run(2,balance(stcAngle.Angle[0]/temp1,stcGyro.w[0]/temp2)); 
+				}else{
+					motor_run(4,balance(stcAngle.Angle[0]/temp1,stcGyro.w[0]/temp2)); 
+					motor_run(1,balance(stcAngle.Angle[0]/temp1,stcGyro.w[0]/temp2)); 
+				}
+		}else{
+			motor_run(4,m[3]); 
+			motor_run(1,m[4]);
+		}
+	
 		rt_thread_delay(5);
 		rt_timer_check();
 	}

@@ -2,7 +2,7 @@
 /*一般.c定义数据*/
 	
 double m[10];
-char s[]={'p','i','d'};
+char s[]={'p','i','d','l','r','s'};
 
 char Rx_Buf3[Rx_Max3];
 u16 Rx_End3,Rx_Len3,Rx_Tm3;
@@ -149,12 +149,11 @@ void PcTx_String3(char *str){
 void Task_Pc3()
 {
 
-xnumx(Rx_Buf3,Rx_Len3,s,m,3);
+xnumx(Rx_Buf3,Rx_Len3,s,m,6);
 
-
-//	printf("p=%f\r\n",m[0]);
-//	printf("i=%f\r\n",m[1]);
-//	printf("d=%f\r\n",m[2]);
+	printf("\r\nset xnum is ok \r\np = %.2f\r\n",m[0]);
+	printf("i = %.2f\r\n",m[1]);
+	printf("d = %.2f\r\n\r\n",m[2]);
 	
 		Rx_End3=0;
 		Rx_Len3=0;

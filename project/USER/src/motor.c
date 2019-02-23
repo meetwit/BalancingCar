@@ -61,27 +61,32 @@ void motor_run(u8 left_right_direct, u8 Percentage){
 	temp=Percentage*PWMMAX/100;
 	temp_N=PWMMAX-temp;
 	
-	if(left_right_direct==1){
-		PWMA1=temp_N;
-		PWMA2=PWMMAX;
-	}else if(left_right_direct==2){
-		PWMA1=PWMMAX;
-		PWMA2=temp_N;
-	}else if(left_right_direct==3){
-		PWMB1=temp_N;
-		PWMB2=PWMMAX;
-	}else if(left_right_direct==4){
-		PWMB1=PWMMAX;
-		PWMB2=temp_N;
-	}else{//stop
-		PWMA1=0;
-		PWMA2=0;
-		PWMB1=0;
-		PWMB2=0;	
+	switch (left_right_direct){
+		case 0:
+			PWMA1=0;
+			PWMA2=0;
+			PWMB1=0;
+			PWMB2=0;
+			break;
+		case 1:
+			PWMA1=temp_N;
+			PWMA2=PWMMAX;
+			break;
+		case 2:
+			PWMA1=PWMMAX;
+			PWMA2=temp_N;
+			break;
+		case 3:
+			PWMB1=temp_N;
+				PWMB2=PWMMAX;
+			break;
+		case 4:
+			PWMB1=PWMMAX;
+				PWMB2=temp_N;
+			break;
 	}
-	
-	
 }
+
 
 /*
 º¯ÊýÃû£ºselfCorrecting

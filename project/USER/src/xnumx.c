@@ -51,25 +51,27 @@ void xnumx(char * rx,char rxLen,char * separator,double * mwData,char mwDataLen)
 		mwAddr[i][1] = findLastChar(rx,separator[i],rxLen);
 		
 		/*Âú×ãx number xÐÎÊ½*/
-		if(mwAddr[i][0]!=mwAddr[i][1])
-		for(u8 j=0,len=mwAddr[i][1]-mwAddr[i][0]-1;j<len;j++){
-			if(rx[mwAddr[i][1]-1-j]=='.'){
-				k=j;
-				continue;
+		if(mwAddr[i][0]!=mwAddr[i][1]){
+			mwData[i]=0;
+			for(u8 j=0,len=mwAddr[i][1]-mwAddr[i][0]-1;j<len;j++){
+				if(rx[mwAddr[i][1]-1-j]=='.'){
+						k=j;
+						continue;
+					}
+					if(rx[mwAddr[i][1]-1-j]=='-'){
+						mwData[i] = 0 - mwData[i];
+						break;
+					}
+					if(0==k){
+						temp = (rx[mwAddr[i][1]-1-j]-48)*longNum[j];
+					}else{
+						temp = (rx[mwAddr[i][1]-1-j]-48)*longNum[j-1];
+					}
+					mwData[i] += temp;
 			}
-			if(rx[mwAddr[i][1]-1-j]=='-'){
-				mwData[i] = 0 - mwData[i];
-				break;
-			}
-			if(0==k){
-				temp = (rx[mwAddr[i][1]-1-j]-48)*longNum[j];
-			}else{
-				temp = (rx[mwAddr[i][1]-1-j]-48)*longNum[j-1];
-			}
-			mwData[i] += temp;
-			
-		}	
 			mwData[i] = mwData[i]/longNum[k];
+		}
+			
 	}
 	
 	

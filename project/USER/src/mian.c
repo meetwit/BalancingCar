@@ -26,7 +26,7 @@ int main(){
 	tid1=rt_thread_create("readEncode",readEncode,RT_NULL,256,6,100);
 	rt_thread_startup(tid1);
 	
-	tid2=rt_thread_create("sendData",sendData,RT_NULL,512,5,100);
+	tid2=rt_thread_create("sendData",sendData,RT_NULL,512,5,100);//5
 	rt_thread_startup(tid2);
 
 	tid3=rt_thread_create("controlMotor",controlMotor,RT_NULL,1024,4,100);
