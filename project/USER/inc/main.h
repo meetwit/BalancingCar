@@ -16,10 +16,11 @@
 
 #include "xnumx.h"
 
-	#define PWMMAX 3600	
+	#define PWMMAX 7200	
 
 	extern double m[10];
 	extern char s[];
+	extern s32 leftEncoder,rightEncoder;
 
 #endif
 

@@ -32,7 +32,7 @@ int main(){
 	tid3=rt_thread_create("controlMotor",controlMotor,RT_NULL,1024,4,100);
 	rt_thread_startup(tid3);
 
-	tid_time=rt_thread_create("tid_time",time_thread,RT_NULL,256,7,100);
+	tid_time=rt_thread_create("tid_time",time_thread,RT_NULL,256,7,10);
 	rt_thread_startup(tid_time);
 	
 	timer1 = rt_timer_create("t1",timer1_f,RT_NULL,10,RT_TIMER_FLAG_PERIODIC | RT_TIMER_FLAG_SOFT_TIMER);

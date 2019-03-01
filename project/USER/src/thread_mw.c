@@ -17,7 +17,7 @@ void readEncode(void* parameter){
 		leftEncoder += Read_Encoder(2);
 		rightEncoder += Read_Encoder(4);
 		
-		rt_thread_delay(10000);
+		rt_thread_delay(1);
 		rt_timer_check();
 	}
 	
@@ -31,20 +31,21 @@ void readEncode(void* parameter){
 作	者：meetwit
 */
 void sendData(void* parameter){
-	float temp1,temp2,temp3;
-	temp1 = 32768/180.0;			//角度
-	temp2 = 32768/2000.0;			//角速度
-	temp3 = 32768/16.0;				//角加速度
-	while(1){
-		sendDataCount++;
+//	float temp1,temp2,temp3;
+//	temp1 = 32768/180.0;			//角度
+//	temp2 = 32768/2000.0;			//角速度
+//	temp3 = 32768/16.0;				//角加速度
+//	while(1){
+//		sendDataCount++;
 //		printf("leftEncoder=%d,rightEncoder=%d\r\n",leftEncoder,rightEncoder);
-	printf("x=%.2f,y=%.2f,z=%.2f\r\n",stcAngle.Angle[0]/temp1,stcAngle.Angle[1]/temp1,stcAngle.Angle[2]/temp1);
-	printf("\r\np = %.2f\r\n",m[0]);
-	printf("i = %.2f\r\n",m[1]);
-	printf("d = %.2f\r\n\r\n",m[2]);
-		rt_thread_delay(3000);		//do something
-		rt_timer_check();
-	}
+//	printf("x=%.2f,y=%.2f,z=%.2f\r\n",stcAngle.Angle[0]/temp1,stcAngle.Angle[1]/temp1,stcAngle.Angle[2]/temp1);
+//	printf("wx=%.2f,xy=%.2f,xz=%.2f\r\n",stcGyro.w[0]/temp1,stcGyro.w[1]/temp1,stcGyro.w[2]/temp1);
+//	printf("\r\np = %.2f\r\n",m[0]);
+//	printf("i = %.2f\r\n",m[1]);
+//	printf("d = %.2f\r\n\r\n",m[2]);
+//		rt_thread_delay(3000);		//do something
+//		rt_timer_check();
+//	}
 	
 }
 
@@ -61,6 +62,7 @@ void controlMotor(void* parameter){
 	temp1 = 32768/180.0;			//角度
 	temp2 = 32768/2000.0;			//角速度
 	temp3 = 32768/16.0;				//角加速度
+	int finalPwm = 0,finalPwm2 = 0;
 	while(1){
 		controlMotorCount++;
 //		selfCorrecting('l',1,leftEncoder-600000);
@@ -75,17 +77,32 @@ void controlMotor(void* parameter){
 //			printf("%d\r\n",temp[j]);
 //		}
 		
+		/*
+		3.3  0.06
+		
+		*/
 		if(m[5]==0){
 				if(stcAngle.Angle[0]/temp1>0){
-					motor_run(3,balance(stcAngle.Angle[0]/temp1,stcGyro.w[0]/temp2)); 
-					motor_run(2,balance(stcAngle.Angle[0]/temp1,stcGyro.w[0]/temp2)); 
+					//finalPwm = balance(stcAngle.Angle[0]/temp1,stcGyro.w[0]/temp2)+velocity(Read_Encoder(2),Read_Encoder(4));
+					finalPwm = velocity();
+					motor_run(3,finalPwm); 
+					motor_run(2,finalPwm); 
 				}else{
-					motor_run(4,balance(stcAngle.Angle[0]/temp1,stcGyro.w[0]/temp2)); 
-					motor_run(1,balance(stcAngle.Angle[0]/temp1,stcGyro.w[0]/temp2)); 
+					//finalPwm2 = balance(-stcAngle.Angle[0]/temp1,-stcGyro.w[0]/temp2)+velocity(Read_Encoder(2),Read_Encoder(4));
+					finalPwm2 = velocity();
+					motor_run(4,finalPwm2); 
+					motor_run(1,finalPwm2); 
 				}
+				
+				
+		}else if(m[5]==1){
+				motor_run(2,m[3]); 
+				motor_run(3,m[4]);
+		}else if(m[5]==2){
+				motor_run(1,m[3]); 
+				motor_run(4,m[4]);
 		}else{
-			motor_run(4,m[3]); 
-			motor_run(1,m[4]);
+			;
 		}
 	
 		rt_thread_delay(5);
