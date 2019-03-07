@@ -11,6 +11,7 @@
 #include "thread_mw.h"
 
 #include "motor.h"
+#include "control.h"
 #include "encoder.h"
 #include "JY901.h"
 

@@ -117,13 +117,13 @@ void selfCorrecting(u8 switchOne,u8 type,s32 target){
 入口参数：角度、角速度
 返回  值：直立控制PWM
 **************************************************************************/
-int balance(float Angle,float Gyro)
+int balance_mw(float Angle,float Gyro)
 {  
    float Bias,kp,kd;
 	 int pwm;
    kp = m[0];
    kd = m[2];
-	 Bias=Angle-m[6];       //===求出平衡的角度中值 和机械相关
+	 Bias=Angle-0;       //===求出平衡的角度中值 和机械相关
 	 pwm=kp*Bias+Gyro*kd;   //===计算平衡控制的电机PWM  PD控制   kp是P系数 kd是D系数 
 	 return pwm;
 }
@@ -134,13 +134,13 @@ int balance(float Angle,float Gyro)
 返回  值：速度控制PWM
 作    者：平衡小车之家
 **************************************************************************/
-int velocity(void)
+int velocity_mw(void)
 {  
   static float Velocity,Encoder_Least,Encoder,Movement = 0;
-	static float Encoder_Integral,Target_Velocity;
+	static float Encoder_Integral = 0,Target_Velocity = 0;
 	float Velocity_Kp = 0,Velocity_Ki = 0;
-	Velocity_Kp = m[7];
-	Velocity_Ki = m[8];
+	Velocity_Kp = m[3];
+	Velocity_Ki = m[4];
 	
 	  //=============遥控前进后退部分=======================// 
 //	  if(Bi_zhang==1&&Flag_sudu==1)  Target_Velocity=45;                 //如果进入避障模式,自动进入低速模式
@@ -152,16 +152,17 @@ int velocity(void)
 //	  Movement=-Target_Velocity/Flag_sudu;
    //=============速度PI控制器=======================//	
 		Encoder_Least =(leftEncoder+rightEncoder)-0;                    //===获取最新速度偏差==测量速度（左右编码器之和）-目标速度（此处为零） 
-		Encoder *= 0.8;		                                                //===一阶低通滤波器       
-		Encoder += Encoder_Least*0.2;	                                    //===一阶低通滤波器    
+		Encoder *= 0.7;		                                                //===一阶低通滤波器       
+		Encoder += Encoder_Least*0.3;	                                    //===一阶低通滤波器    
 		Encoder_Integral +=Encoder;                                       //===积分出位移 积分时间：10ms
 		Encoder_Integral=Encoder_Integral-Movement;                       //===接收遥控器数据，控制前进后退
-//		if(Encoder_Integral>10000)  	Encoder_Integral=10000;             //===积分限幅
-//		if(Encoder_Integral<-10000)	Encoder_Integral=-10000;              //===积分限幅	
+		if(Encoder_Integral>10000)  	Encoder_Integral=10000;             //===积分限幅
+		if(Encoder_Integral<-10000)	Encoder_Integral=-10000;              //===积分限幅	
 		Velocity=Encoder*Velocity_Kp+Encoder_Integral*Velocity_Ki;                          //===速度控制	
+//		printf("Encoder=%f,Encoder_Integral=%f\r\n",Encoder,Encoder_Integral);
 		leftEncoder = 0;
 		rightEncoder = 0;
-//		if(Turn_Off(Angle_Balance,Voltage)==1||Flag_Stop==1)   Encoder_Integral=0;      //===电机关闭后清除积分
+		if(m[8]>10)   Encoder_Integral=0;      //===电机关闭后清除积分
 	  return Velocity;
 }
 

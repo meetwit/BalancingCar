@@ -11,7 +11,7 @@
 void PWM_Init_TIM1(u16 arr,u16 psc);
 void motor_run(u8 left_right_direct, u8 Percentage);
 void selfCorrecting(u8 switchOne,u8 type,s32 target);
-int balance(float Angle,float Gyro);
-int velocity(void);
+int balance_mw(float Angle,float Gyro);
+int velocity_mw(void);
 
 #endif
