@@ -1,8 +1,8 @@
 #include "main.h"
 /*一般.c定义数据*/
 	
-double m[10];
-char s[]={'q','w','e','i','o','p','b','n','m'};
+double m[10]={0};
+char s[]={'q','w','e','a','s','d','z','x','c'};
 
 char Rx_Buf3[Rx_Max3];
 u16 Rx_End3,Rx_Len3,Rx_Tm3;
@@ -127,6 +127,7 @@ void PcTx_String3(char *str){
 *************************************************************/
 	void USART3_IRQHandler(void)
 {
+rt_interrupt_enter();
 	u8 tempdata;
 	if(USART3->SR&(0x1<<5))	//接收到数据
 	{ 
@@ -135,7 +136,8 @@ void PcTx_String3(char *str){
 				Rx_Buf3[Rx_Len3++]=tempdata;
 				Rx_Tm3=5;//每次重新赋值5
 		}
-	}		
+	}
+rt_interrupt_leave();	
 }
 
 /************************************************************

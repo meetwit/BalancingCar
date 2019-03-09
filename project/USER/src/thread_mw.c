@@ -15,7 +15,7 @@ void readEncode(void* parameter){
 	while(1){
 		readEncodeCount++;
 		leftEncoder += Read_Encoder(2);
-		rightEncoder += Read_Encoder(4);
+		rightEncoder -= Read_Encoder(4);
 		
 		rt_thread_delay(1);
 		rt_timer_check();
@@ -56,7 +56,7 @@ void controlMotor(void* parameter){
 		controlMotorCount++;
 			finalPwm = 0;
 			finalPwm += balance_mw(stcAngle.Angle[0]/temp1,stcGyro.w[0]/temp2);
-			finalPwm -= velocity_mw();
+			finalPwm += velocity_mw();
 		if(finalPwm>=0){
 				motor_run(3,finalPwm); 
 				motor_run(2,finalPwm);
@@ -64,6 +64,8 @@ void controlMotor(void* parameter){
 				motor_run(4,-finalPwm); 
 				motor_run(1,-finalPwm);
 		}
+//		motor_run(1,20); 
+//		motor_run(3,20); 
 				
 		/*
 		2019Äê3ÔÂ6ÈÕ 
@@ -102,6 +104,12 @@ void time_thread(void* parameter){
 		h=tick_temp/RT_TICK_PER_SECOND/60/60%24;
 		rt_kprintf("\r\nThe system runtime is %d:%d:%d.%d\r\n",h,m,s,tick_temp%RT_TICK_PER_SECOND);
 		rt_kprintf("imuCorrectCount=%d,imuErrorCount=%d,readEncodeCount=%d,sendDataCount=%d,controlMotorCount=%d\r\n",imuCorrectCount/3,imuErrorCount,readEncodeCount,sendDataCount,controlMotorCount);
+		
+		
+//		rt_kprintf("leftEncoder=%d;rightEncoder=%d\r\n",leftEncoder,rightEncoder);	
+//		leftEncoder = 0;
+//		rightEncoder = 0;
+		
 		imuCorrectCount=0;
 		imuErrorCount=0;
 		readEncodeCount=0;

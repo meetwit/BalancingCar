@@ -68,21 +68,21 @@ void motor_run(u8 left_right_direct, u8 Percentage){
 			PWMB1=0;
 			PWMB2=0;
 			break;
+		case 4:
+			PWMB1=PWMMAX;
+			PWMB2=temp_N;
+			break;
 		case 1:
 			PWMA1=temp_N;
 			PWMA2=PWMMAX;
-			break;
-		case 2:
-			PWMA1=PWMMAX;
-			PWMA2=temp_N;
 			break;
 		case 3:
 			PWMB1=temp_N;
 			PWMB2=PWMMAX;
 			break;
-		case 4:
-			PWMB1=PWMMAX;
-			PWMB2=temp_N;
+		case 2:
+			PWMA1=PWMMAX;
+			PWMA2=temp_N;
 			break;
 	}
 }
@@ -128,38 +128,27 @@ int balance_mw(float Angle,float Gyro)
 	 return pwm;
 }
 
-/**************************************************************************
-函数功能：速度PI控制 修改前进后退速度，请修Target_Velocity，比如，改成60就比较慢了
-入口参数：左轮编码器、右轮编码器
-返回  值：速度控制PWM
-作    者：平衡小车之家
-**************************************************************************/
+
 int velocity_mw(void)
 {  
-  static float Velocity,Encoder_Least,Encoder,Movement = 0;
-	static float Encoder_Integral = 0,Target_Velocity = 0;
-	float Velocity_Kp = 0,Velocity_Ki = 0;
+	static float Encoder_Integral = 0,Velocity = 0,encoder = 0;
+	static float Velocity_Kp = 0,Velocity_Ki = 0;
+	int least = 0;
+	
 	Velocity_Kp = m[3];
 	Velocity_Ki = m[4];
 	
-	  //=============遥控前进后退部分=======================// 
-//	  if(Bi_zhang==1&&Flag_sudu==1)  Target_Velocity=45;                 //如果进入避障模式,自动进入低速模式
-//    else 	                         Target_Velocity=110;                 
-//		if(1==Flag_Qian)    	Movement=Target_Velocity/Flag_sudu;	         //===前进标志位置1 
-//		else if(1==Flag_Hou)	Movement=-Target_Velocity/Flag_sudu;         //===后退标志位置1
-//	  else  Movement=0;	
-//	  if(Bi_zhang==1&&Distance<500&&Flag_Left!=1&&Flag_Right!=1)        //避障标志位置1且非遥控转弯的时候，进入避障模式
-//	  Movement=-Target_Velocity/Flag_sudu;
-   //=============速度PI控制器=======================//	
-		Encoder_Least =(leftEncoder+rightEncoder)-0;                    //===获取最新速度偏差==测量速度（左右编码器之和）-目标速度（此处为零） 
-		Encoder *= 0.7;		                                                //===一阶低通滤波器       
-		Encoder += Encoder_Least*0.3;	                                    //===一阶低通滤波器    
-		Encoder_Integral +=Encoder;                                       //===积分出位移 积分时间：10ms
-		Encoder_Integral=Encoder_Integral-Movement;                       //===接收遥控器数据，控制前进后退
-		if(Encoder_Integral>10000)  	Encoder_Integral=10000;             //===积分限幅
-		if(Encoder_Integral<-10000)	Encoder_Integral=-10000;              //===积分限幅	
-		Velocity=Encoder*Velocity_Kp+Encoder_Integral*Velocity_Ki;                          //===速度控制	
-//		printf("Encoder=%f,Encoder_Integral=%f\r\n",Encoder,Encoder_Integral);
+		least = (leftEncoder+rightEncoder)-0; 
+//		rt_kprintf("leftEncoder=%d,rightEncoder=%d,Encoder_Least=%d\r\n",leftEncoder,rightEncoder,least);
+		encoder *= 0.7;		                                                //===一阶低通滤波器       
+		encoder += least*0.3;	                                    //===一阶低通滤波器    
+		Encoder_Integral +=encoder;                                       //===积分出位移 积分时间：10ms
+		Encoder_Integral=Encoder_Integral-0;                       //===接收遥控器数据，控制前进后退
+		if(Encoder_Integral>100000)  	Encoder_Integral=100000;             //===积分限幅
+		if(Encoder_Integral<-100000)	Encoder_Integral=-100000;              //===积分限幅	
+		Velocity=encoder*Velocity_Kp+Encoder_Integral*Velocity_Ki;   
+		//rt_kprintf("encoder=%d,Encoder_Integral=%d,Velocity=%d\r\n",encoder,Encoder_Integral,Velocity);	   
+//		printf("e=%f,EI=%f,V=%f\r\n",encoder,Encoder_Integral,Velocity);	   
 		leftEncoder = 0;
 		rightEncoder = 0;
 		if(m[8]>10)   Encoder_Integral=0;      //===电机关闭后清除积分

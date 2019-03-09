@@ -90,10 +90,12 @@ void PcTx_String2(u8 *str){
 *************************************************************/
 	void USART2_IRQHandler(void)
 {
+	rt_interrupt_enter();
 	u8 tempdata;
 	if(USART2->SR&(0x1<<5))	//接收到数据
 	{ 
 		tempdata=USART2->DR;
 		CopeSerialData(tempdata);
 	}		
+	rt_interrupt_leave();
 }

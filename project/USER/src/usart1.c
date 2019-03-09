@@ -79,3 +79,18 @@ void PcTx_String(u8 *str){
 			PcTx_Byte(*(str++));
 		}
 }
+
+/************************************************************
+函数名：USART1_IRQHandler()
+形  参：无
+返回值：无
+功  能：串口2中断
+作  者：meetwit
+时  间：2017年11月19日11:27:43
+*************************************************************/
+	void USART1_IRQHandler(void)
+{
+	rt_interrupt_enter();
+	rt_interrupt_leave();
+}
+
