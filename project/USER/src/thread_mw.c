@@ -48,32 +48,49 @@ void sendData(void* parameter){
 */
 void controlMotor(void* parameter){
 	float temp1,temp2,temp3;
+	float get_angle,get_gyro;
 	temp1 = 32768/180.0;			//角度
 	temp2 = 32768/2000.0;			//角速度
 	temp3 = 32768/16.0;				//角加速度
-	int finalPwm = 0;
+	int finalPwm = 0,finalPwm2 = 0;
+	u8 time=0;
 	while(1){
+		time++;
 		controlMotorCount++;
 			finalPwm = 0;
-			finalPwm += balance_mw(stcAngle.Angle[0]/temp1,stcGyro.w[0]/temp2);
-			finalPwm += velocity_mw();
-		if(finalPwm>=0){
-				motor_run(3,finalPwm); 
-				motor_run(2,finalPwm);
-		}else{
-				motor_run(4,-finalPwm); 
-				motor_run(1,-finalPwm);
+		get_angle = stcAngle.Angle[0]/temp1;
+		get_gyro = stcGyro.w[0]/temp2;
+		if(get_angle>40||get_angle<-40){									//角度过大，锁住
+			motor_run(0,0);
+			stop_flag = 1;
 		}
-//		motor_run(1,20); 
-//		motor_run(3,20); 
-				
-		/*
-		2019年3月6日 
-		4.3 0 0.8	= 2.58 0 0.48
-		4.6 0  0.31=2.76 0 0.186
-		           = 5.4 0 0.2
-		*/
-	
+		if(stop_flag){
+			if(get_angle>-5&&get_angle<5){									//角度适合，解锁
+				rt_thread_delay(RT_TICK_PER_SECOND*2);				//扶正后等待x秒
+				stop_flag = 0;																//解锁
+			}
+				velocity_mw();																//执行一次清除积分
+				motor_run(0,0);																
+		}else{
+			//10和300 进行PID控制
+			finalPwm += balance_mw(get_angle,get_gyro);
+			finalPwm += velocity_mw();
+			finalPwm2 = finalPwm+Flag_turn;
+			if(finalPwm2>=0){
+					motor_run(3,finalPwm2); 
+			}else{
+					motor_run(4,-finalPwm2); 
+			}
+			if(finalPwm>=0){
+					motor_run(2,finalPwm);
+			}else{
+					motor_run(1,-finalPwm);
+			}
+			if(time%20==0){
+				Flag_v = 0;
+				Flag_turn = 0;
+			}
+		}
 		rt_thread_delay(5);
 		rt_timer_check();
 	}
@@ -104,12 +121,7 @@ void time_thread(void* parameter){
 		h=tick_temp/RT_TICK_PER_SECOND/60/60%24;
 		rt_kprintf("\r\nThe system runtime is %d:%d:%d.%d\r\n",h,m,s,tick_temp%RT_TICK_PER_SECOND);
 		rt_kprintf("imuCorrectCount=%d,imuErrorCount=%d,readEncodeCount=%d,sendDataCount=%d,controlMotorCount=%d\r\n",imuCorrectCount/3,imuErrorCount,readEncodeCount,sendDataCount,controlMotorCount);
-		
-		
-//		rt_kprintf("leftEncoder=%d;rightEncoder=%d\r\n",leftEncoder,rightEncoder);	
-//		leftEncoder = 0;
-//		rightEncoder = 0;
-		
+
 		imuCorrectCount=0;
 		imuErrorCount=0;
 		readEncodeCount=0;

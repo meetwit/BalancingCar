@@ -22,6 +22,8 @@
 	extern double m[10];
 	extern char s[];
 	extern s32 leftEncoder,rightEncoder;
+	
+	extern float stop_flag,ctr_flag,Flag_v,Flag_turn;
 
 #endif
 

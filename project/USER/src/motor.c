@@ -1,5 +1,5 @@
 #include "main.h"
-
+float stop_flag = 0,ctr_flag = 0,Flag_v = 0,Flag_turn = 0;
 /*
 函数名：PWM_Init_TIM1
 传	参：u16 arr,u16 psc 频率
@@ -119,10 +119,10 @@ void selfCorrecting(u8 switchOne,u8 type,s32 target){
 **************************************************************************/
 int balance_mw(float Angle,float Gyro)
 {  
-   float Bias,kp,kd;
+   static float Bias,kp = 3,kd = 0.2;
 	 int pwm;
-   kp = m[0];
-   kd = m[2];
+//   kp = m[0];
+//   kd = m[2];
 	 Bias=Angle-0;       //===求出平衡的角度中值 和机械相关
 	 pwm=kp*Bias+Gyro*kd;   //===计算平衡控制的电机PWM  PD控制   kp是P系数 kd是D系数 
 	 return pwm;
@@ -132,26 +132,26 @@ int balance_mw(float Angle,float Gyro)
 int velocity_mw(void)
 {  
 	static float Encoder_Integral = 0,Velocity = 0,encoder = 0;
-	static float Velocity_Kp = 0,Velocity_Ki = 0;
+	static float Velocity_Kp = 0.04,Velocity_Ki = 0.0002;
 	int least = 0;
 	
-	Velocity_Kp = m[3];
-	Velocity_Ki = m[4];
-	
-		least = (leftEncoder+rightEncoder)-0; 
-//		rt_kprintf("leftEncoder=%d,rightEncoder=%d,Encoder_Least=%d\r\n",leftEncoder,rightEncoder,least);
-		encoder *= 0.7;		                                                //===一阶低通滤波器       
-		encoder += least*0.3;	                                    //===一阶低通滤波器    
-		Encoder_Integral +=encoder;                                       //===积分出位移 积分时间：10ms
-		Encoder_Integral=Encoder_Integral-0;                       //===接收遥控器数据，控制前进后退
-		if(Encoder_Integral>100000)  	Encoder_Integral=100000;             //===积分限幅
-		if(Encoder_Integral<-100000)	Encoder_Integral=-100000;              //===积分限幅	
-		Velocity=encoder*Velocity_Kp+Encoder_Integral*Velocity_Ki;   
-		//rt_kprintf("encoder=%d,Encoder_Integral=%d,Velocity=%d\r\n",encoder,Encoder_Integral,Velocity);	   
-//		printf("e=%f,EI=%f,V=%f\r\n",encoder,Encoder_Integral,Velocity);	   
+//	Velocity_Kp = m[3];
+//	Velocity_Ki = m[4];
+//		Flag_v = m[8];
+		least = (leftEncoder+rightEncoder) - Flag_v;  
 		leftEncoder = 0;
 		rightEncoder = 0;
-		if(m[8]>10)   Encoder_Integral=0;      //===电机关闭后清除积分
+//		rt_kprintf("leftEncoder=%d,rightEncoder=%d,Encoder_Least=%d\r\n",leftEncoder,rightEncoder,least);
+		encoder *= 0.8;		                                                //===一阶低通滤波器       
+		encoder += least*0.2;	                                    //===一阶低通滤波器    
+		Encoder_Integral +=encoder;                                       //===积分出位移 积分时间：10ms
+		Encoder_Integral=Encoder_Integral-0;                       //===接收遥控器数据，控制前进后退
+		if(Encoder_Integral>240000)  	Encoder_Integral=240000;             //===积分限幅
+		if(Encoder_Integral<-240000)	Encoder_Integral=-240000;              //===积分限幅	
+		Velocity=encoder*Velocity_Kp+Encoder_Integral*Velocity_Ki;   
+		//rt_kprintf("encoder=%d,Encoder_Integral=%d,Velocity=%d\r\n",encoder,Encoder_Integral,Velocity);	   
+//		printf("e=%f,EI=%f,V=%f\r\n",encoder,Encoder_Integral,Velocity);	  
+		if(stop_flag||ctr_flag)   Encoder_Integral=0;      //===电机关闭后清除积分
 	  return Velocity;
 }
 

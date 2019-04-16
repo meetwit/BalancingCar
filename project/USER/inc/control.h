@@ -2,6 +2,6 @@
 #define __CONTROL_H
 #include "main.h"	 
 
-int Position_PID (int Encoder,int Target);
+void remoteControl(u8 data);
 
 #endif

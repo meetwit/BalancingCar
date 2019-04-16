@@ -132,6 +132,7 @@ rt_interrupt_enter();
 	if(USART3->SR&(0x1<<5))	//接收到数据
 	{ 
 		tempdata=USART3->DR;
+		remoteControl(tempdata);
 		if((Rx_End3==0)&&(Rx_Len3<Rx_Max3)){
 				Rx_Buf3[Rx_Len3++]=tempdata;
 				Rx_Tm3=5;//每次重新赋值5
