@@ -1,17 +1,16 @@
 .\objects\jy901.o: USER\src\JY901.c
 .\objects\jy901.o: C:\Keil_v5\ARM\ARMCC\Bin\..\include\string.h
 .\objects\jy901.o: .\USER\inc\JY901.h
-.\objects\jy901.o: C:\Keil_v5\ARM\PACK\Keil\STM32F1xx_DFP\2.3.0\Device\Include\stm32f10x.h
-.\objects\jy901.o: .\RTE\_balancingCar\RTE_Components.h
-.\objects\jy901.o: C:\Keil_v5\ARM\PACK\ARM\CMSIS\5.4.0\CMSIS\Core\Include\core_cm3.h
+.\objects\jy901.o: C:\Keil_v5\ARM\PACK\Keil\STM32F1xx_DFP\1.1.0\Device\Include\stm32f10x.h
+.\objects\jy901.o: E:\git\BalancingCar\bishe me\RTE\RTE_Components.h
+.\objects\jy901.o: C:\Keil_v5\ARM\PACK\ARM\CMSIS\5.0.1\CMSIS\Include\core_cm3.h
 .\objects\jy901.o: C:\Keil_v5\ARM\ARMCC\Bin\..\include\stdint.h
-.\objects\jy901.o: C:\Keil_v5\ARM\PACK\ARM\CMSIS\5.4.0\CMSIS\Core\Include\cmsis_version.h
-.\objects\jy901.o: C:\Keil_v5\ARM\PACK\ARM\CMSIS\5.4.0\CMSIS\Core\Include\cmsis_compiler.h
-.\objects\jy901.o: C:\Keil_v5\ARM\PACK\ARM\CMSIS\5.4.0\CMSIS\Core\Include\cmsis_armcc.h
-.\objects\jy901.o: C:\Keil_v5\ARM\PACK\Keil\STM32F1xx_DFP\2.3.0\Device\Include\system_stm32f10x.h
+.\objects\jy901.o: C:\Keil_v5\ARM\PACK\ARM\CMSIS\5.0.1\CMSIS\Include\cmsis_compiler.h
+.\objects\jy901.o: C:\Keil_v5\ARM\PACK\ARM\CMSIS\5.0.1\CMSIS\Include\cmsis_armcc.h
+.\objects\jy901.o: C:\Keil_v5\ARM\PACK\Keil\STM32F1xx_DFP\1.1.0\Device\Include\system_stm32f10x.h
 .\objects\jy901.o: .\USER\inc\thread_mw.h
 .\objects\jy901.o: C:\Keil_v5\ARM\PACK\RealThread\RT-Thread\3.1.2\include\rtthread.h
-.\objects\jy901.o: .\RTE\RTOS\rtconfig.h
+.\objects\jy901.o: E:\git\BalancingCar\bishe me\RTE\RTOS\rtconfig.h
 .\objects\jy901.o: C:\Keil_v5\ARM\PACK\RealThread\RT-Thread\3.1.2\include\rtdebug.h
 .\objects\jy901.o: C:\Keil_v5\ARM\PACK\RealThread\RT-Thread\3.1.2\include\rtdef.h
 .\objects\jy901.o: C:\Keil_v5\ARM\ARMCC\Bin\..\include\stdarg.h

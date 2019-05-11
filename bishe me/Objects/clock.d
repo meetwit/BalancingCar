@@ -1,8 +1,8 @@
 .\objects\clock.o: C:\Keil_v5\ARM\PACK\RealThread\RT-Thread\3.1.2\src\clock.c
 .\objects\clock.o: C:\Keil_v5\ARM\PACK\RealThread\RT-Thread\3.1.2\include\rthw.h
 .\objects\clock.o: C:\Keil_v5\ARM\PACK\RealThread\RT-Thread\3.1.2\include\rtthread.h
-.\objects\clock.o: .\RTE\RTOS\rtconfig.h
-.\objects\clock.o: .\RTE\_balancingCar\RTE_Components.h
+.\objects\clock.o: E:\git\BalancingCar\bishe me\RTE\RTOS\rtconfig.h
+.\objects\clock.o: E:\git\BalancingCar\bishe me\RTE\RTE_Components.h
 .\objects\clock.o: C:\Keil_v5\ARM\PACK\RealThread\RT-Thread\3.1.2\include\rtdebug.h
 .\objects\clock.o: C:\Keil_v5\ARM\PACK\RealThread\RT-Thread\3.1.2\include\rtdef.h
 .\objects\clock.o: C:\Keil_v5\ARM\ARMCC\Bin\..\include\stdarg.h

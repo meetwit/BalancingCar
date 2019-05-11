@@ -1,7 +1,7 @@
 .\objects\cpuport.o: C:\Keil_v5\ARM\PACK\RealThread\RT-Thread\3.1.2\libcpu\arm\cortex-m3\cpuport.c
 .\objects\cpuport.o: C:\Keil_v5\ARM\PACK\RealThread\RT-Thread\3.1.2\include\rtthread.h
-.\objects\cpuport.o: .\RTE\RTOS\rtconfig.h
-.\objects\cpuport.o: .\RTE\_balancingCar\RTE_Components.h
+.\objects\cpuport.o: E:\git\BalancingCar\bishe me\RTE\RTOS\rtconfig.h
+.\objects\cpuport.o: E:\git\BalancingCar\bishe me\RTE\RTE_Components.h
 .\objects\cpuport.o: C:\Keil_v5\ARM\PACK\RealThread\RT-Thread\3.1.2\include\rtdebug.h
 .\objects\cpuport.o: C:\Keil_v5\ARM\PACK\RealThread\RT-Thread\3.1.2\include\rtdef.h
 .\objects\cpuport.o: C:\Keil_v5\ARM\ARMCC\Bin\..\include\stdarg.h

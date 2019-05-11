@@ -1,0 +1,124 @@
+<html>
+<body>
+<pre>
+<h1>礦ision Build Log</h1>
+<h2>Tool Versions:</h2>
+IDE-Version: μVision V5.14.0.0
+Copyright (C) 2015 ARM Ltd and ARM Germany GmbH. All rights reserved.
+License Information: meetwit AutoBVT, Microsoft, LIC=4ZLPC-7NF39-GN1A5-G6L1U-UHXEI-LW856
+ 
+Tool Versions:
+Toolchain:       MDK-ARM Professional  Version: 5.14.0.0
+Toolchain Path:  C:\Keil_v5\ARM\ARMCC\Bin
+C Compiler:      Armcc.exe V5.05 update 1 (build 106)
+Assembler:       Armasm.exe V5.05 update 1 (build 106)
+Linker/Locator:  ArmLink.exe V5.05 update 1 (build 106)
+Library Manager: ArmAr.exe V5.05 update 1 (build 106)
+Hex Converter:   FromElf.exe V5.05 update 1 (build 106)
+CPU DLL:         SARMCM3.DLL V5.14.0.0
+Dialog DLL:      DCM.DLL V1.13.1.0
+Target DLL:      CMSIS_AGDI.dll V1.21.0.0
+Dialog DLL:      TCM.DLL V1.14.4.0
+ 
+<h2>Project:</h2>
+E:\git\BalancingCar\调试程序\balancingCar.uvprojx
+Project File Date:  05/09/2019
+
+<h2>Output:</h2>
+Build target 'balancingCar'
+compiling mian.c...
+compiling encoder.c...
+compiling motor.c...
+compiling usart1.c...
+compiling usart2.c...
+compiling usart3.c...
+compiling thread_mw.c...
+USER\src\thread_mw.c(55): warning:  #550-D: variable "temp3" was set but never used
+        float temp1,temp2,temp3;
+USER\src\thread_mw.c: 1 warning, 0 errors
+compiling JY901.c...
+USER\src\JY901.c(88): warning:  #223-D: function "ANO_send" declared implicitly
+                ANO_send(0xf2,(unsigned char *)sendANO,sizeof(   float),sizeof(sendANO));
+USER\src\JY901.c: 1 warning, 0 errors
+compiling xnumx.c...
+compiling control.c...
+compiling ANO.c...
+assembling startup_stm32f10x_md.s...
+compiling system_stm32f10x.c...
+assembling context_rvds.S...
+compiling cpuport.c...
+compiling clock.c...
+compiling components.c...
+compiling device.c...
+compiling idle.c...
+compiling ipc.c...
+compiling irq.c...
+compiling kservice.c...
+compiling mem.c...
+compiling object.c...
+compiling scheduler.c...
+compiling thread.c...
+compiling timer.c...
+compiling board.c...
+linking...
+Program Size: Code=14108 RO-data=576 RW-data=336 ZI-data=5744  
+".\Objects\balancingCar.axf" - 0 Error(s), 2 Warning(s).
+
+<h2>Software Packages used:</h2>
+
+Package Vendor: ARM
+                http://www.keil.com/pack/ARM.CMSIS.5.0.1.pack
+                ARM::CMSIS:CORE:5.0.1
+                CMSIS (Cortex Microcontroller Software Interface Standard)
+   * Component: CORE Version: 5.0.1
+
+Package Vendor: Keil
+                http://www.keil.com/pack/Keil.STM32F1xx_DFP.1.1.0.pack
+                Keil::Device:Startup:1.0.0
+                STMicroelectronics STM32F1 Series Device Support, Drivers and Examples
+   * Component: Startup Version: 1.0.0
+
+Package Vendor: RealThread
+                https://www.rt-thread.org/download/mdk/RealThread.RT-Thread.3.1.2.pack
+                RealThread.RT-Thread::RTOS:kernel:3.1.2
+                RT-Thread Software Components
+   * Component: kernel Version: 3.1.2
+
+<h2>Collection of Component include folders:</h2>
+  E:\git\BalancingCar\调试程序\RTE
+  E:\git\BalancingCar\调试程序\RTE\Device\STM32F103C8
+  E:\git\BalancingCar\调试程序\RTE\RTOS
+  C:\Keil_v5\ARM\PACK\ARM\CMSIS\5.0.1\CMSIS\Include
+  C:\Keil_v5\ARM\PACK\Keil\STM32F1xx_DFP\1.1.0\Device\Include
+  C:\Keil_v5\ARM\PACK\RealThread\RT-Thread\3.1.2\include
+
+<h2>Collection of Component Files used:</h2>
+
+   * Component: ARM::CMSIS:CORE:5.0.1
+
+   * Component: Keil::Device:Startup:1.0.0
+      Source file:   Device\Source\ARM\STM32F1xx_OPT.s
+      Source file:   Device\Source\ARM\startup_stm32f10x_md.s
+      Source file:   Device\Source\system_stm32f10x.c
+      Include file:  RTE_Driver\Config\RTE_Device.h
+
+   * Component: RealThread.RT-Thread::RTOS:kernel:3.1.2
+      Include file:  bsp\rtconfig.h
+      Source file:   bsp\board.c
+      Source file:   src\clock.c
+      Source file:   src\components.c
+      Source file:   src\device.c
+      Source file:   src\idle.c
+      Source file:   src\ipc.c
+      Source file:   src\irq.c
+      Source file:   src\kservice.c
+      Source file:   src\mem.c
+      Source file:   src\object.c
+      Source file:   src\scheduler.c
+      Source file:   src\thread.c
+      Source file:   src\timer.c
+      Source file:   libcpu\arm\cortex-m3\cpuport.c
+      Source file:   libcpu\arm\cortex-m3\context_rvds.S
+</pre>
+</body>
+</html>

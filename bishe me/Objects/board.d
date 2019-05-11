@@ -1,8 +1,8 @@
 .\objects\board.o: RTE\RTOS\board.c
 .\objects\board.o: C:\Keil_v5\ARM\PACK\RealThread\RT-Thread\3.1.2\include\rthw.h
 .\objects\board.o: C:\Keil_v5\ARM\PACK\RealThread\RT-Thread\3.1.2\include\rtthread.h
-.\objects\board.o: .\RTE\RTOS\rtconfig.h
-.\objects\board.o: .\RTE\_balancingCar\RTE_Components.h
+.\objects\board.o: E:\git\BalancingCar\bishe me\RTE\RTOS\rtconfig.h
+.\objects\board.o: E:\git\BalancingCar\bishe me\RTE\RTE_Components.h
 .\objects\board.o: C:\Keil_v5\ARM\PACK\RealThread\RT-Thread\3.1.2\include\rtdebug.h
 .\objects\board.o: C:\Keil_v5\ARM\PACK\RealThread\RT-Thread\3.1.2\include\rtdef.h
 .\objects\board.o: C:\Keil_v5\ARM\ARMCC\Bin\..\include\stdarg.h
@@ -23,12 +23,11 @@
 .\objects\board.o: C:\Keil_v5\ARM\PACK\RealThread\RT-Thread\3.1.2\include\rtthread.h
 .\objects\board.o: .\USER\inc\main.h
 .\objects\board.o: C:\Keil_v5\ARM\ARMCC\Bin\..\include\stdio.h
-.\objects\board.o: C:\Keil_v5\ARM\PACK\Keil\STM32F1xx_DFP\2.3.0\Device\Include\stm32f10x.h
-.\objects\board.o: C:\Keil_v5\ARM\PACK\ARM\CMSIS\5.4.0\CMSIS\Core\Include\core_cm3.h
-.\objects\board.o: C:\Keil_v5\ARM\PACK\ARM\CMSIS\5.4.0\CMSIS\Core\Include\cmsis_version.h
-.\objects\board.o: C:\Keil_v5\ARM\PACK\ARM\CMSIS\5.4.0\CMSIS\Core\Include\cmsis_compiler.h
-.\objects\board.o: C:\Keil_v5\ARM\PACK\ARM\CMSIS\5.4.0\CMSIS\Core\Include\cmsis_armcc.h
-.\objects\board.o: C:\Keil_v5\ARM\PACK\Keil\STM32F1xx_DFP\2.3.0\Device\Include\system_stm32f10x.h
+.\objects\board.o: C:\Keil_v5\ARM\PACK\Keil\STM32F1xx_DFP\1.1.0\Device\Include\stm32f10x.h
+.\objects\board.o: C:\Keil_v5\ARM\PACK\ARM\CMSIS\5.0.1\CMSIS\Include\core_cm3.h
+.\objects\board.o: C:\Keil_v5\ARM\PACK\ARM\CMSIS\5.0.1\CMSIS\Include\cmsis_compiler.h
+.\objects\board.o: C:\Keil_v5\ARM\PACK\ARM\CMSIS\5.0.1\CMSIS\Include\cmsis_armcc.h
+.\objects\board.o: C:\Keil_v5\ARM\PACK\Keil\STM32F1xx_DFP\1.1.0\Device\Include\system_stm32f10x.h
 .\objects\board.o: .\USER\inc\usart1.h
 .\objects\board.o: .\USER\inc\usart2.h
 .\objects\board.o: .\USER\inc\usart3.h

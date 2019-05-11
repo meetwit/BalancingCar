@@ -1,8 +1,8 @@
 .\objects\idle.o: C:\Keil_v5\ARM\PACK\RealThread\RT-Thread\3.1.2\src\idle.c
 .\objects\idle.o: C:\Keil_v5\ARM\PACK\RealThread\RT-Thread\3.1.2\include\rthw.h
 .\objects\idle.o: C:\Keil_v5\ARM\PACK\RealThread\RT-Thread\3.1.2\include\rtthread.h
-.\objects\idle.o: .\RTE\RTOS\rtconfig.h
-.\objects\idle.o: .\RTE\_balancingCar\RTE_Components.h
+.\objects\idle.o: E:\git\BalancingCar\bishe me\RTE\RTOS\rtconfig.h
+.\objects\idle.o: E:\git\BalancingCar\bishe me\RTE\RTE_Components.h
 .\objects\idle.o: C:\Keil_v5\ARM\PACK\RealThread\RT-Thread\3.1.2\include\rtdebug.h
 .\objects\idle.o: C:\Keil_v5\ARM\PACK\RealThread\RT-Thread\3.1.2\include\rtdef.h
 .\objects\idle.o: C:\Keil_v5\ARM\ARMCC\Bin\..\include\stdarg.h

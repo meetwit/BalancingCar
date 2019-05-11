@@ -1,8 +1,8 @@
 .\objects\components.o: C:\Keil_v5\ARM\PACK\RealThread\RT-Thread\3.1.2\src\components.c
 .\objects\components.o: C:\Keil_v5\ARM\PACK\RealThread\RT-Thread\3.1.2\include\rthw.h
 .\objects\components.o: C:\Keil_v5\ARM\PACK\RealThread\RT-Thread\3.1.2\include\rtthread.h
-.\objects\components.o: .\RTE\RTOS\rtconfig.h
-.\objects\components.o: .\RTE\_balancingCar\RTE_Components.h
+.\objects\components.o: E:\git\BalancingCar\bishe me\RTE\RTOS\rtconfig.h
+.\objects\components.o: E:\git\BalancingCar\bishe me\RTE\RTE_Components.h
 .\objects\components.o: C:\Keil_v5\ARM\PACK\RealThread\RT-Thread\3.1.2\include\rtdebug.h
 .\objects\components.o: C:\Keil_v5\ARM\PACK\RealThread\RT-Thread\3.1.2\include\rtdef.h
 .\objects\components.o: C:\Keil_v5\ARM\ARMCC\Bin\..\include\stdarg.h

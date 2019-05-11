@@ -1,0 +1,11 @@
+[Signum Systems SigUV3Arm.dll Settings]
+
+[Flash Programming - balancingCar]
+ProgrammingOptions=0x20003            
+RAMAreaAddr=0x20000000            
+RAMAreaSize=0x800            
+
+[Emulation Parameters - balancingCar]
+BypassTest=no            
+ResetCPUonStartup=yes            
+SetPCandCPSRonCPUReset=yes            
